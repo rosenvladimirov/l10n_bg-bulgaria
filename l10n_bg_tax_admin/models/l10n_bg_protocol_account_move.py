@@ -42,9 +42,7 @@ class AccountMoveBgProtocol(models.Model):
         index="trigram",
     )
     currency_id = fields.Many2one(
-        'res.currency',
-        string="Currency",
-        related='company_id.currency_id'
+        "res.currency", string="Currency", related="company_id.currency_id"
     )
 
     # -------------------------------------------------------------------------

@@ -16,17 +16,11 @@ Currency Rate Update BNB Static rate
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fl10n--bulgaria-lightgray.png?logo=github
-    :target: https://github.com/OCA/l10n-bulgaria/tree/16.0/currency_rate_update_bg_bnb
-    :alt: OCA/l10n-bulgaria
-.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/l10n-bulgaria-16-0/l10n-bulgaria-16-0-currency_rate_update_bg_bnb
-    :alt: Translate me on Weblate
-.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/l10n-bulgaria&target_branch=16.0
-    :alt: Try me on Runboat
+.. |badge3| image:: https://img.shields.io/badge/github-rosenvladimirov%2Fl10n--bulgaria-lightgray.png?logo=github
+    :target: https://github.com/rosenvladimirov/l10n-bulgaria/tree/16.0/currency_rate_update_bg_bnb
+    :alt: rosenvladimirov/l10n-bulgaria
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3|
 
 [ This file must be max 2-3 paragraphs, and is required. ]
 
@@ -46,17 +40,17 @@ evaluate the module's usefulness in their context. ]
 
 It should explain the “why” of the module:
 
--  in which context or use cases this module can be useful (practical
-   examples are welcome!).
--  what is the business requirement that generated the need to develop
-   this module
+- in which context or use cases this module can be useful (practical
+  examples are welcome!).
+- what is the business requirement that generated the need to develop
+  this module
 
 It can also inform on related modules:
 
--  modules it depends on and their features
--  other modules that can work well together with this one
--  suggested setups where the module is useful (eg: multicompany,
-   multi-website)
+- modules it depends on and their features
+- other modules that can work well together with this one
+- suggested setups where the module is useful (eg: multicompany,
+  multi-website)
 
 Installation
 ============
@@ -77,12 +71,12 @@ before using it; it is aimed at advanced users. ]
 
 To configure this module, you need to:
 
--  Go to ...
+- Go to ...
 
 |alternative description|../static/description/image.png)
 
-https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/.https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/.https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/|https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/lhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/rhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/nhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/vhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/dhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/shttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/chttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/rhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/phttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ohttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/nhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/|https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/mhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ghttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/:https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/:https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/
-https://raw.githubusercontent.com/OCA/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/
+https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/.https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/.https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/|https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ahttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/lhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/thttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/rhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/nhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ahttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/thttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/vhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/dhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/shttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/chttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/rhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/phttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/thttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ohttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/nhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/|https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ihttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/mhttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ahttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ghttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ehttps://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/:https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/:https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/ https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/
+https://raw.githubusercontent.com/rosenvladimirov/l10n-bulgaria/16.0/currency_rate_update_bg_bnb/
 
 Usage
 =====
@@ -105,7 +99,7 @@ Known issues / Roadmap
 mostly intended for end-users, and can also help potential new
 contributors discovering new features to implement. ]
 
--  ...
+- ...
 
 Changelog
 =========
@@ -123,23 +117,23 @@ fragment is included. ]
 11.0.x.y.z (YYYY-MM-DD)
 -----------------------
 
--  [BREAKING] Breaking changes come first.
-   (`#70 <https://github.com/OCA/repo/issues/70>`__)
--  [ADD] New feature. (`#74 <https://github.com/OCA/repo/issues/74>`__)
--  [FIX] Correct this. (`#71 <https://github.com/OCA/repo/issues/71>`__)
+- [BREAKING] Breaking changes come first.
+  (`#70 <https://github.com/OCA/repo/issues/70>`__)
+- [ADD] New feature. (`#74 <https://github.com/OCA/repo/issues/74>`__)
+- [FIX] Correct this. (`#71 <https://github.com/OCA/repo/issues/71>`__)
 
 11.0.x.y.z (YYYY-MM-DD)
 -----------------------
 
--  ...
+- ...
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/l10n-bulgaria/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/rosenvladimirov/l10n-bulgaria/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/l10n-bulgaria/issues/new?body=module:%20currency_rate_update_bg_bnb%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/rosenvladimirov/l10n-bulgaria/issues/new?body=module:%20currency_rate_update_bg_bnb%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -155,10 +149,9 @@ Authors
 Contributors
 ------------
 
--  Firstname Lastname email.address@example.org (optional company
-   website url)
--  Second Person second.person@example.org (optional company website
-   url)
+- Firstname Lastname email.address@example.org (optional company website
+  url)
+- Second Person second.person@example.org (optional company website url)
 
 Other credits
 -------------
@@ -168,22 +161,12 @@ authors, contributors, and maintainers. ]
 
 The development of this module has been financially supported by:
 
--  Company 1 name
--  Company 2 name
+- Company 1 name
+- Company 2 name
 
 Maintainers
 -----------
 
-This module is maintained by the OCA.
+This module is part of the `rosenvladimirov/l10n-bulgaria <https://github.com/rosenvladimirov/l10n-bulgaria/tree/16.0/currency_rate_update_bg_bnb>`_ project on GitHub.
 
-.. image:: https://odoo-community.org/logo.png
-   :alt: Odoo Community Association
-   :target: https://odoo-community.org
-
-OCA, or the Odoo Community Association, is a nonprofit organization whose
-mission is to support the collaborative development of Odoo features and
-promote its widespread use.
-
-This module is part of the `OCA/l10n-bulgaria <https://github.com/OCA/l10n-bulgaria/tree/16.0/currency_rate_update_bg_bnb>`_ project on GitHub.
-
-You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
+You are welcome to contribute.

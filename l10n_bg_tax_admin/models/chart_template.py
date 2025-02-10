@@ -5,7 +5,6 @@ from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError
 
 from odoo.addons.base.models.res_lang import intersperse
-from odoo.addons.l10n_bg_config.models.account_move import get_doc_type, get_type_vat
 
 _logger = logging.getLogger(__name__)
 
@@ -113,7 +112,7 @@ class AccountChartTemplate(models.Model):
         )
 
     def _get_template_ref(self, position, fp, template_ref, company_id):
-        if 'type_ids' not in position._fields:
+        if "type_ids" not in position._fields:
             return template_ref
 
         type_invoice_ref = []

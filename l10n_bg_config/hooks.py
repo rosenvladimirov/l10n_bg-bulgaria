@@ -57,6 +57,7 @@ def pre_init_hook(cr):
             load_language(cr, language.code)
             modules._update_translations(language.code)
 
+
 def post_init_hook(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
     migrate_account_account_tag(env)

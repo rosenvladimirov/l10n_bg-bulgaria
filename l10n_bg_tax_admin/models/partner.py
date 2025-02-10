@@ -4,7 +4,6 @@ import logging
 from odoo import fields, models
 
 from odoo.addons.l10n_bg_config.models.account_move import get_doc_type, get_type_vat
-
 from odoo.addons.l10n_bg_fix.models.chart_template import get_invoice_type
 
 _logger = logging.getLogger(__name__)

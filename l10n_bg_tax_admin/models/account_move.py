@@ -216,7 +216,7 @@ class AccountMove(models.Model):
         "currency_id",
     )
     def _compute_tax_totals_signed(self):
-        type_tax_use =  self._context.get("type_tax_use", 'sale')
+        type_tax_use = self._context.get("type_tax_use", "sale")
         for move in self:
             if move.is_invoice(include_receipts=True):
                 base_lines = move.invoice_line_ids.filtered(
@@ -250,12 +250,15 @@ class AccountMove(models.Model):
                 }
 
                 if move.id:
-                    _logger.info(f"lines {[x.tax_line_id and x.tax_line_id.type_tax_use for x in move.line_ids.filtered(lambda line: line.display_type == 'tax')]}")
+                    _logger.info(
+                        f"lines {[x.tax_line_id and x.tax_line_id.type_tax_use for x in move.line_ids.filtered(lambda line: line.display_type == 'tax')]}"
+                    )
                     kwargs["tax_lines"] = [
                         line._convert_to_tax_line_dict()
                         for line in move.line_ids.filtered(
                             lambda line: line.display_type == "tax"
-                                         and line.tax_line_id and line.tax_line_id.type_tax_use == type_tax_use
+                            and line.tax_line_id
+                            and line.tax_line_id.type_tax_use == type_tax_use
                         )
                     ]
                 else:
@@ -608,12 +611,14 @@ class AccountMove(models.Model):
         self.ensure_one()
         # result = self.env.ref("account.action_move_in_invoice_type")
         # result = result.read()[0]
-        result = self.env['ir.actions.act_window']._for_xml_id('account.action_move_in_invoice_type')
+        result = self.env["ir.actions.act_window"]._for_xml_id(
+            "account.action_move_in_invoice_type"
+        )
         result.update(
             {
                 "view_type": "form",
                 "view_mode": "form",
-                "views": [(self.env.ref('account.view_move_form', False).id, 'form')],
+                "views": [(self.env.ref("account.view_move_form", False).id, "form")],
                 "res_id": self.l10n_bg_customs_invoice_id.id,
                 "domain": [("id", "=", self.l10n_bg_customs_invoice_id.id)],
             }
@@ -625,7 +630,9 @@ class AccountMove(models.Model):
         if self.l10n_bg_protocol_invoice_id:
             # result = self.env.ref("l10n_bg_tax_admin.action_protocol_account_move")
             # result = result.read()[0]
-            result = self.env['ir.actions.act_window']._for_xml_id('l10n_bg_tax_admin.action_protocol_account_move')
+            result = self.env["ir.actions.act_window"]._for_xml_id(
+                "l10n_bg_tax_admin.action_protocol_account_move"
+            )
             result.update(
                 {
                     "context": {
@@ -634,7 +641,15 @@ class AccountMove(models.Model):
                     },
                     "view_type": "form",
                     "view_mode": "form",
-                    "views": [(self.env.ref('l10n_bg_tax_admin.view_account_move_bg_protocol_form', False).id, 'form')],
+                    "views": [
+                        (
+                            self.env.ref(
+                                "l10n_bg_tax_admin.view_account_move_bg_protocol_form",
+                                False,
+                            ).id,
+                            "form",
+                        )
+                    ],
                     "res_id": self.l10n_bg_protocol_invoice_id.id,
                     "domain": [("id", "=", self.l10n_bg_protocol_invoice_id.id)],
                 }

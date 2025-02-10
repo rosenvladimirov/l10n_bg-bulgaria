@@ -25,5 +25,5 @@
     "demo": [],
     "pre_init_hook": "pre_init_hook",
     "post_init_hook": "post_init_hook",
-    "auto_install": ['l10n_bg'],
+    "auto_install": ["l10n_bg"],
 }

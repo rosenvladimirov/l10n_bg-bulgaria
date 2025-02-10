@@ -8,7 +8,7 @@
             <xpath expr="//tree" position="inside">
                 <field name="l10n_bg_ecattu" />
                 <field name="l10n_bg_municipality_id" />
-                <field name="l10n_bg_city_hall_id"/>
+                <field name="l10n_bg_city_hall_id" />
                 <field name="l10n_bg_type_settlement_id" />
                 <field name="l10n_bg_structure_type" />
                 <field name="l10n_bg_has_tax_office" />

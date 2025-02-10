@@ -2,7 +2,7 @@
 
 {
     "name": "Multi Language Partner, Company, Employee",
-    "version": "16.0.0.1.0",
+    "version": "17.0.0.1.0",
     "author": "Rosen Vladimirov",
     "category": "Localization",
     "license": "AGPL-3",
@@ -13,7 +13,6 @@
         "base",
         "hr",
         "stock",
-        "l10n_multilang",
         "partner_multilang",
     ],
     "data": [],

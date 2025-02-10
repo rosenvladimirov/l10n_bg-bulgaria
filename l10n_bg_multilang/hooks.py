@@ -3,23 +3,19 @@ from odoo.api import SUPERUSER_ID, Environment
 
 
 def pre_init_hook(cr):
-    cr.execute(
-        """
-        ALTER TABLE res_partner
-        ADD COLUMN IF NOT EXISTS display_name_bg character varying;
-        """
-    )
-    cr.execute("UPDATE res_partner SET display_name_bg=display_name_en;")
+    env = Environment(cr, SUPERUSER_ID, {})
+    if not env["res.lang"].search([("code", "=", "bg_BG")]):
+        env["res.lang"].action_activate_langs()
 
 
 def post_init_hook(cr, registry):
     env = Environment(cr, SUPERUSER_ID, {})
-    for partnr_id in env["res.partner"].search([]):
-        partnr_id.with_context(lang="bg_BG").write(
+    for partner_id in env["res.partner"].search([]):
+        partner_id.with_context(lang="bg_BG").write(
             {
-                "name": partnr_id.name,
-                "city": partnr_id.city,
-                "street": partnr_id.street,
+                "name": partner_id.name,
+                "city": partner_id.city,
+                "street": partner_id.street,
             }
         )
 

@@ -14,7 +14,7 @@ Vcs-Git: https://github.com/rosenvladimirov/l10n-bulgaria
 
 Package: odoo-l10n-bulgaria
 Architecture: all
-Depends: 
+Depends:
          ${misc:Depends},
          ${python3:Depends},
          python3-transliterate (>=1.10.2-5),
