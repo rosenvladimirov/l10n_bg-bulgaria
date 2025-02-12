@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_saleorder" inherit_id="sale.report_saleorder">
+    <template id="report_saleorder_raw" inherit_id="sale.report_saleorder_raw">
         <xpath expr="//t[@t-call='sale.report_saleorder_document']" position="before">
             <t t-set="o" t-value="doc"/>
         </xpath>
