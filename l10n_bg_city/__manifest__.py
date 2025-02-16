@@ -11,6 +11,7 @@
     "depends": [
         "base_address_extended",
         "contacts",
+        "l10n_bg_multilang",
     ],
     "data": [
         "security/ir.model.access.csv",

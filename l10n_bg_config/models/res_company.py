@@ -20,6 +20,7 @@ class ResCompany(models.Model):
         inverse="_inverse_l10n_bg_represent_contact_id",
         store=True,
     )
+    l10n_bg_departament_code = fields.Integer("Departament code")
 
     def _compute_l10n_bg_represent_contact_id(self):
         for record in self:

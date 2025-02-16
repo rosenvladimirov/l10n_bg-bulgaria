@@ -16,7 +16,6 @@
     ],
     "data": [
         "data/res_lang_data.xml",
-        "security/ir.model.access.csv",
         "views/res_config_view.xml",
         "views/account_account_tag_views.xml",
         "views/partner_view.xml",

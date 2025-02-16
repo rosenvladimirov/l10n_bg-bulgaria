@@ -9,4 +9,3 @@ class ResConfigSettings(models.TransientModel):
     l10n_bg_odoo_compatible = fields.Boolean(related="company_id.l10n_bg_odoo_compatible")
     l10n_bg_intra_stat_incomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_incomes")
     l10n_bg_intra_stat_outcomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_outcomes")
-

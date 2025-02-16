@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-l10n_bg_reports_audit.access_l10n_bg_audit_mixin,access_l10n_bg_audit_mixin,l10n_bg_reports_audit.model_l10n_bg_audit_mixin,base.group_user,1,1,1,1
-l10n_bg_config.access_l10n_bg_registrations_mixin,access_l10n_bg_registrations_mixin,l10n_bg_config.model_l10n_bg_registrations_mixin,base.group_user,1,1,1,1

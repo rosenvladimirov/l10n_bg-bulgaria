@@ -1,387 +1,75 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="res_config_settings_view_form" model="ir.ui.view">
-        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="name">res.config.settings.view.form.inherit.account</field>
         <field name="model">res.config.settings</field>
-        <field name="priority" eval="50" />
-        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="priority" eval="45"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
+            <xpath expr="//form" position="inside">
                 <field name="is_l10n_bg_record" invisible="1" />
-            </xpath>
-            <xpath
-                expr="//div[@data-key='account']//field[@name='module_currency_rate_live']/../.."
-                position="after"
-            >
-                <div
-                    class="col-12 col-lg-6 o_setting_box"
-                    attrs="{'invisible': [('is_l10n_bg_record','=',False)]}"
-                >
-                    <div class="o_setting_left_pane">
-                        <field name="module_currency_rate_update_bg_bnb" />
-                    </div>
-                    <div class="o_setting_right_pane">
-                        <label for="module_currency_rate_update_bg_bnb" />
-                        <span
-                            class="fa fa-lg fa-building-o"
-                            title="Values set here are company-specific."
-                            role="img"
-                            aria-label="Values set here are company-specific."
-                            groups="base.group_multi_company"
-                        />
-                        <div
-                            class="text-muted"
-                            title="Will update daily from cron only if is checked Automatic Currency Rates (OCA) and you added a rate_provider"
-                        >
-                            Install BNB update rates
-                        </div>
-                    </div>
-                </div>
-            </xpath>
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div
-                    class="app_settings_block"
-                    data-string="Bulgariа"
-                    string="Bulgaria"
-                    data-key="l10n_bg_config"
-                    groups="account.group_account_manager"
-                >
-                    <field
-                        name="country_code"
-                        invisible="1"
-                        groups="account.group_account_manager"
-                    />
-                    <div
-                        name="l10n_bg_config_container"
-                        attrs="{'invisible': [('country_code', '!=', 'BG')]}"
-                    >
-                        <h2>Partners and Addresses</h2>
-                        <div
-                            class="row mt16 o_settings_container"
-                            name="modules_l10n_bg_contact_setting_container"
-                        >
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_partner_multilang"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_partner_multilang" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_partner_multilang" />
-                                    <div class="text-muted">
-                                        Set up a functionality to use transliterate names of partners,
-                                        company, city, street ...
-                                    </div>
+                <field name="country_code" invisible="1" groups="account.group_account_manager"/>
+                <app data-string="Bulgaria Localization" string="Bulgaria Localization" name="l10n_bg" groups="account.group_account_manager" invisible="country_code != 'BG'">
+                    <block title="Multilang cyrillic support" name="l10n_bg_multilang">
+                        <setting id="l10n_bg_partner_multilang_modules" title="Partner multilang" string="Partner multilang" help="Multilang support for partner names and more">
+                            <div class="content-group" name="l10n_bg_partner_multilang_setting_container">
+                                <div class="d-flex">
+                                    <field name="module_partner_multilang" class="ml16"/>
+                                    <label for="module_partner_multilang" class="o_light_label"/>
                                 </div>
                             </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_multilang"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_multilang" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_multilang" />
-                                    <div class="text-muted">
-                                        Change to multilingual support for fields without native configurations
-                                    </div>
+                        </setting>
+                        <setting id="l10n_bg_multilang_modules" title="Other multilang" string="Other multilang" help="Multilang support for other fields">
+                            <div class="content-group" name="l10n_bg_other_multilang_setting_container">
+                                <div class="d-flex">
+                                    <field name="module_l10n_bg_multilang" class="ml16"/>
+                                    <label for="module_l10n_bg_multilang" class="o_light_label"/>
                                 </div>
                             </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_address_extended"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_address_extended" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_address_extended" />
-                                    <div class="text-muted">
-                                        Complete also additional information in extended address for partners.
-                                    </div>
+                        </setting>
+                    </block>
+                    <block title="Report forms" name="l10n_bg_report_forms">
+                        <setting id="l10n_bg_report_forms_modules" title="Report printing forms" string="Report printing forms" help="Reform the reports forms support for Bulgaria">
+                            <div class="content-group" name="l10n_bg_report_forms_setting_container">
+                                <div class="d-flex">
+                                    <field name="module_l10n_bg_report_theme" class="ml16"/>
+                                    <label for="module_l10n_bg_report_theme" class="o_light_label"/>
                                 </div>
                             </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_city"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_city" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_city" />
-                                    <div class="text-muted">
-                                        Upload Bulgaria cites, municipalities, states,
-                                        villages and manastiries, so you can select them more easily.
-                                    </div>
+                        </setting>
+                    </block>
+                    <block title="Bank - modules" name="l10n_bg_bank">
+                        <setting id="l10n_bg_bank_modules" title="Bank related Modules" string="Bank related Modules" help="Will update daily from cron only if is checked Automatic Currency Rates (OCA) and you added a rate_provider">
+                            <div class="content-group" name="l10n_bg_bank_setting_container">
+                                <div class="d-flex">
+                                    <field name="module_currency_rate_update_bg_bnb" class="ml16"/>
+                                    <label for="module_currency_rate_update_bg_bnb" class="o_light_label"/>
                                 </div>
                             </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_tax_offices"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_tax_offices" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_tax_offices" />
-                                    <div class="text-muted">
-                                        Address and department of NRA Bulgaria added like partners
-                                        to use when make a payment ot taxes.
-                                    </div>
-                                </div>
+                        </setting>
+                    </block>
+                    <block title="Partners &amp; Addresses" id="l10n_bg_contact_setting_container">
+                        <setting id="l10n_bg_address_setting_container" help="Extend address with Bulgaria localization.">
+                            <div class="d-flex">
+                                <field name="module_l10n_bg_address_extended" class="ml16"/>
+                                <label for="module_l10n_bg_address_extended" class="o_light_label"/>
                             </div>
-                            <h2>Accounting and Localizations</h2>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_account_financial_forms"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_account_financial_forms" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_account_financial_forms" />
-                                    <div class="text-muted">
-                                        Account financial report base on tax administration forms for audit.
-                                    </div>
-                                </div>
+                        </setting>
+                        <setting id="l10n_bg_city_setting_container" help="Bulgaria cites.">
+                            <div class="d-flex">
+                                <field name="module_l10n_bg_city" class="ml16"/>
+                                <label for="module_l10n_bg_city" class="o_light_label"/>
                             </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_coa_reports"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_coa_reports" readonly="1"/>
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_coa_reports" />
-                                    <div class="text-muted">
-                                        Account financial reports for audit.
-                                    </div>
-                                </div>
+                        </setting>
+                        <setting id="l10n_bg_tax_offices_setting_container" help="Bulgaria cites.">
+                            <div class="d-flex">
+                                <field name="module_l10n_bg_tax_offices" class="ml16"/>
+                                <label for="module_l10n_bg_tax_offices" class="o_light_label"/>
                             </div>
+                        </setting>
+                    </block>
 
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_vat_reports"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field
-                                        name="module_l10n_bg_vat_reports"
-                                        widget="upgrade_boolean"
-                                    />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_vat_reports" />
-                                    <div class="text-muted">
-                                        Generate VAT declaration and export in csv file.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_tax_admin"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_tax_admin" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_tax_admin" />
-                                    <div class="text-muted">
-                                        Base module for generate Bulgaria localizations.
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_uic_id_number"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_uic_id_number" />
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_uic_id_number" />
-                                    <div class="text-muted">
-                                        Bulgarian registration codes base on OCA module partner_identification
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="col-12 col-lg-6 o_setting_box"
-                                id="module_l10n_bg_assets"
-                            >
-                                <div class="o_setting_left_pane">
-                                    <field name="module_l10n_bg_assets" widget="upgrade_boolean"/>
-                                </div>
-                                <div class="o_setting_right_pane">
-                                    <label for="module_l10n_bg_assets" />
-                                    <div class="text-muted">
-                                        Add rules for tax desperation base Bulgarian law
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <t groups="account.group_account_user">
-                            <h2>INTRASTAT Settings</h2>
-                            <div class="row mt16 o_settings_container" name="modules_l10n_bg_intrastat_setting_container">
-                                <div class="col-12 col-lg-6 o_setting_box" id="module_l10n_bg_intrastat">
-                                    <div class="o_setting_left_pane">
-                                        <field name="module_l10n_bg_intrastat" widget="upgrade_boolean"/>
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <label for="module_l10n_bg_intrastat" />
-                                        <div class="text-muted">
-                                            Bulgaria-Generates Intrastat XML report for declaration
-                                        </div>
-                                    </div>
-                                    <div class="o_setting_left_pane"/>
-                                    <div class="o_setting_right_pane" name="module_l10n_bg_intrastat_config">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt16 o_settings_container" name="modules_l10n_bg_intrastat_setting_container">
-                                <div class="col-12 col-lg-6 o_setting_box" id="module_l10n_bg_intrastat_product">
-                                    <div class="o_setting_left_pane">
-                                        <field name="module_l10n_bg_intrastat_product"/>
-                                    </div>
-                                    <div class="o_setting_right_pane">
-                                        <label for="module_l10n_bg_intrastat_product" />
-                                        <div class="text-muted">
-                                            Provide Intrastat Product Declaration.
-                                        </div>
-                                    </div>
-                                    <div class="o_setting_left_pane"/>
-                                    <div class="o_setting_right_pane" name="module_l10n_bg_intrastat_product_config">
-                                    </div>
-                                </div>
-                            </div>
-                            <h2>Default Accounts</h2>
-                            <div
-                                class="row mt16 o_settings_container"
-                                id="default_bg_accounts"
-                            >
-                                <div
-                                    class="col-12 col-lg-6 o_setting_box"
-                                    attrs="{'invisible': [('group_multi_currency', '=', False)]}"
-                                >
-                                    <div class="o_setting_left_pane" />
-                                    <div class="o_setting_right_pane">
-                                        <div class="content-group">
-                                            <div>
-                                                <span
-                                                    class="o_form_label"
-                                                >Configure odoo tax report compatible:</span>
-                                            </div>
-                                            <div class="row mt8">
-                                                <field
-                                                    name="l10n_bg_odoo_compatible"
-                                                    readonly="0"
-                                                />
-                                            </div>
-                                            <div>
-                                                <span
-                                                    class="o_form_label"
-                                                >Post Exchange difference entries in:</span>
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="currency_exchange_journal_id"
-                                                    class="col-lg-4 o_light_label"
-                                                    string="Journal"
-                                                />
-                                                <field
-                                                    name="currency_exchange_journal_id"
-                                                />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="income_currency_exchange_account_id"
-                                                    class="col-lg-4 o_light_label"
-                                                />
-                                                <field
-                                                    name="income_currency_exchange_account_id"
-                                                />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="expense_currency_exchange_account_id"
-                                                    class="col-lg-4 o_light_label"
-                                                />
-                                                <field
-                                                    name="expense_currency_exchange_account_id"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6 o_setting_box">
-                                    <div class="o_setting_left_panel" />
-                                    <div class="o_setting_right_pane">
-                                        <span
-                                            class="o_form_label"
-                                        >The following default accounts are used with certain features.</span>
-                                        <div class="content-group">
-                                            <div class="row mt8">
-                                                <label
-                                                    for="account_journal_suspense_account_id"
-                                                    class="col-lg-5 o_light_label"
-                                                />
-                                                <field
-                                                    name="account_journal_suspense_account_id"
-                                                />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="account_journal_payment_debit_account_id"
-                                                    class="col-lg-5 o_light_label"
-                                                />
-                                                <field
-                                                    name="account_journal_payment_debit_account_id"
-                                                />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="account_journal_payment_credit_account_id"
-                                                    class="col-lg-5 o_light_label"
-                                                />
-                                                <field
-                                                    name="account_journal_payment_credit_account_id"
-                                                />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="transfer_account_id"
-                                                    class="col-lg-5 o_light_label"
-                                                />
-                                                <field name="transfer_account_id" />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="account_journal_early_pay_discount_gain_account_id"
-                                                    class="col-lg-5 o_light_label"
-                                                />
-                                                <field
-                                                    name="account_journal_early_pay_discount_gain_account_id"
-                                                />
-                                            </div>
-                                            <div class="row mt8">
-                                                <label
-                                                    for="account_journal_early_pay_discount_loss_account_id"
-                                                    class="col-lg-5 o_light_label"
-                                                />
-                                                <field
-                                                    name="account_journal_early_pay_discount_loss_account_id"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </t>
-                    </div>
-                </div>
+                </app>
             </xpath>
         </field>
     </record>
