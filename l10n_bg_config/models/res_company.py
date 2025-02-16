@@ -15,7 +15,7 @@ class ResCompany(models.Model):
     )
     l10n_bg_represent_contact_id = fields.Many2one(
         "res.partner",
-        string="TAX Report creator",
+        string="Representative",
         compute="_compute_l10n_bg_represent_contact_id",
         inverse="_inverse_l10n_bg_represent_contact_id",
         store=True,

@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "L10n Bg Config",
+    "name": "Bulgaria localization Configuration",
     "summary": """
         This module allows you to install and configure all the localization modules related to Bulgaria.""",
     "version": "17.0.1.0.0",
