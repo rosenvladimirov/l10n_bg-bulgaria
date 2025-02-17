@@ -61,7 +61,7 @@
                                 <label for="module_l10n_bg_city" class="o_light_label"/>
                             </div>
                         </setting>
-                        <setting id="l10n_bg_tax_offices_setting_container" title="National Revenue Agency" string="national revenue agency" help="National Revenue Agency departments, offices and head office.">
+                        <setting id="l10n_bg_tax_offices_setting_container" title="National Revenue Agency" string="National Revenue Agency" help="National Revenue Agency departments, offices and head office.">
                             <div class="d-flex">
                                 <field name="module_l10n_bg_tax_offices" class="ml16"/>
                                 <label for="module_l10n_bg_tax_offices" class="o_light_label"/>
