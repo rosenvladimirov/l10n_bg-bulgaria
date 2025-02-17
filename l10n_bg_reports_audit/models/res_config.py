@@ -16,3 +16,11 @@ class ResConfigSettings(models.TransientModel):
         "Account - Missing Menus",
         help="Adds missing menu entries for Account module and adds the option to enable Saxon Accounting",
     )
+    module_account_financial_report = fields.Boolean(
+        "Account Financial Reports (OCA)",
+        help="OCA Financial Reports",
+    )
+    module_account_reports = fields.Boolean(
+        "Accounting Reports",
+        help="View and create reports",
+    )

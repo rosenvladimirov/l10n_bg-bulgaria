@@ -9,7 +9,7 @@
             <xpath expr="//form" position="inside">
                 <field name="is_l10n_bg_record" invisible="1" />
                 <field name="country_code" invisible="1" groups="account.group_account_manager"/>
-                <app data-string="Bulgaria Localization" string="Bulgaria Localization" name="l10n_bg" groups="account.group_account_manager" invisible="country_code != 'BG'">
+                <app data-string="Bulgaria Localization" string="Bulgaria Localization" name="l10n_bg_config" groups="account.group_account_manager" invisible="country_code != 'BG'">
                     <block title="Multilang cyrillic support" name="l10n_bg_multilang">
                         <setting id="l10n_bg_partner_multilang_modules" title="Partner multilang" string="Partner multilang" help="Multilang support for partner names and more">
                             <div class="content-group" name="l10n_bg_partner_multilang_setting_container">

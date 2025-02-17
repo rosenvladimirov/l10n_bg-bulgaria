@@ -11,7 +11,7 @@ L10N_BG_INTRASTAT = [
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    l10n_bg_intra_stat_type = fields.Selection(L10N_BG_INTRASTAT, string="Leval of registration")
+    l10n_bg_intra_stat_type = fields.Selection(L10N_BG_INTRASTAT, string="Level of registration")
     l10n_bg_intra_stat_incomes = fields.Boolean("An obligation to submit intra-Community supplies")
     l10n_bg_intra_stat_outcomes = fields.Boolean("An obligation to submit intra-Community incomes")
     l10n_bg_odoo_compatible = fields.Boolean("Odoo compatible")
