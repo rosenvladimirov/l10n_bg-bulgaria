@@ -10,8 +10,8 @@
                 <block title="Settings" name="l10n_bg_audit_report">
                     <setting id="l10n_bg_audit_oca_setting" title="OCA settings" string="OCA settings" help="OCA modules for help.">
                         <div class="d-flex">
-                            <field name="module_partner_multilang" class="ml16"/>
-                            <label for="module_partner_multilang" class="o_light_label"/>
+                            <field name="module_account_usability" class="ml16"/>
+                            <label for="module_account_usability" class="o_light_label"/>
                         </div>
                     </setting>
                     <setting id="l10n_bg_audit_report_setting" title="Vat &amp; Intrastat" string="Vat &amp; Intrastat" help="Mandatory Declaration thresholds. Calculate VAT base on formula.">

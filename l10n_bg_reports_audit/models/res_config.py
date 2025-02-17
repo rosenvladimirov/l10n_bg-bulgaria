@@ -11,3 +11,8 @@ class ResConfigSettings(models.TransientModel):
     l10n_bg_intra_stat_incomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_incomes")
     l10n_bg_intra_stat_outcomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_outcomes")
     l10n_bg_intra_stat_type = fields.Selection(L10N_BG_INTRASTAT, string="Leval of registration")
+
+    module_account_usability = fields.Boolean(
+        "Account - Missing Menus",
+        help="Adds missing menu entries for Account module and adds the option to enable Saxon Accounting",
+    )
