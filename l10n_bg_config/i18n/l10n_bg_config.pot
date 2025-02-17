@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: Odoo Server 17.0-20241008\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-29 04:46+0000\n"
-"PO-Revision-Date: 2024-08-29 04:46+0000\n"
+"POT-Creation-Date: 2025-02-17 20:25+0000\n"
+"PO-Revision-Date: 2025-02-17 20:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,33 +16,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+#: model:ir.model.fields,help:l10n_bg_config.field_res_partner__type
+#: model:ir.model.fields,help:l10n_bg_config.field_res_users__type
 msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "<span class=\"o_form_label\">Configure odoo tax report compatible:</span>"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "<span class=\"o_form_label\">Post Exchange difference entries in:</span>"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid ""
-"<span class=\"o_form_label\">The following default accounts are used with "
-"certain features.</span>"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,help:l10n_bg_config.field_account_account_tag__l10n_bg_code
-msgid "A technical field for tag code"
+"- Contact: Use this to organize the contact details of employees of a given company (e.g. CEO, CFO, ...).\n"
+"- Invoice Address: Preferred address for all invoices. Selected by default when you invoice an order that belongs to this company.\n"
+"- Delivery Address: Preferred address for all deliveries. Selected by default when you deliver an order that belongs to this company.\n"
+"- Other: Other address for the company (e.g. subsidiary, ...)"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -51,37 +31,13 @@ msgid "Account Tag"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_account_financial_forms
-msgid "Account financial report base on tax administration forms for audit"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Account financial report base on tax administration forms for audit."
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Account financial reports for audit."
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Accounting and Localizations"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_type_vat__standard
-#, python-format
-msgid "Accounting document"
-msgstr ""
-
-#. module: l10n_bg_config
 #: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_assets
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Add rules for tax desperation base Bulgarian law"
+msgid "Add rules for tax desperation base Bulgarian law (EE)"
+msgstr ""
+
+#. module: l10n_bg_config
+#: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_report_theme
+msgid "Add theme for Bulgaria reports"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -95,10 +51,9 @@ msgid "Additional data in address like "
 msgstr ""
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid ""
-"Address and department of NRA Bulgaria added like partners\n"
-"                                        to use when make a payment ot taxes."
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_partner__type
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_users__type
+msgid "Address Type"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -106,32 +61,6 @@ msgstr ""
 msgid ""
 "Address and department of NRA Bulgaria added like partners to use when make "
 "a payment ot taxes."
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__51
-#, python-format
-msgid ""
-"Arrival of goods on the territory of the country under the regime of storage"
-" of goods until demand under Art. 15a of VAT"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_type_vat__117_protocol
-#, python-format
-msgid "Art. 117 - Protocols"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_type_vat__119_report
-#, python-format
-msgid "Art. 119 - Report for sales"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -184,27 +113,17 @@ msgstr ""
 
 #. module: l10n_bg_config
 #: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Base module for generate Bulgaria localizations."
+msgid "Bank - modules"
 msgstr ""
 
 #. module: l10n_bg_config
 #: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Bulgaria"
+msgid "Bank related Modules"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_l10n_bg_vat_reports
-msgid "Bulgaria - Accounting VAT reports"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_l10n_bg_tax_admin
-msgid "Bulgaria - Accounting tax"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_l10n_bg_coa_reports
-msgid "Bulgaria - Accounting tax reports"
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_l10n_bg_reports_audit
+msgid "Bulgaria - Accounting TAX Audit reports"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -223,13 +142,23 @@ msgid "Bulgaria - Intrastat Product Declaration"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Bulgaria-Generates Intrastat XML report for declaration"
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_l10n_bg_report_theme
+msgid "Bulgaria - Report Theme"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.view_move_form
-msgid "Bulgarian VAT"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Bulgaria Localization"
+msgstr ""
+
+#. module: l10n_bg_config
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Bulgaria cites, melisipalies, states..."
+msgstr ""
+
+#. module: l10n_bg_config
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Bulgarian cites"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -239,7 +168,6 @@ msgstr ""
 
 #. module: l10n_bg_config
 #: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_uic_id_number
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
 msgid "Bulgarian registration codes base on OCA module partner_identification"
 msgstr ""
 
@@ -250,7 +178,6 @@ msgstr ""
 
 #. module: l10n_bg_config
 #: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_multilang
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
 msgid ""
 "Change to multilingual support for fields without native configurations"
 msgstr ""
@@ -263,11 +190,6 @@ msgid "Choice type of Bulgaria UID."
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_account_tag__l10n_bg_code
-msgid "Code"
-msgstr ""
-
-#. module: l10n_bg_config
 #: model:ir.model,name:l10n_bg_config.model_res_company
 msgid "Companies"
 msgstr ""
@@ -275,7 +197,7 @@ msgstr ""
 #. module: l10n_bg_config
 #. odoo-python
 #: code:addons/l10n_bg_config/models/res_partner.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__res_partner__l10n_bg_function__agent
+#: model:ir.model.fields.selection,name:l10n_bg_config.selection__res_partner__type__agent
 #, python-format
 msgid "Company agent"
 msgstr ""
@@ -283,14 +205,9 @@ msgstr ""
 #. module: l10n_bg_config
 #. odoo-python
 #: code:addons/l10n_bg_config/models/res_partner.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__res_partner__l10n_bg_function__represent
+#: model:ir.model.fields.selection,name:l10n_bg_config.selection__res_partner__type__represent
 #, python-format
 msgid "Company represent/manager"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Complete also additional information in extended address for partners."
 msgstr ""
 
 #. module: l10n_bg_config
@@ -306,83 +223,6 @@ msgstr ""
 #. module: l10n_bg_config
 #: model:ir.model,name:l10n_bg_config.model_res_country
 msgid "Country"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__03
-#, python-format
-msgid "Credit note"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__23
-#, python-format
-msgid "Credit note art. 126b"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__13
-#, python-format
-msgid "Credit notice - cash statement"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__07
-#, python-format
-msgid "Customs declarations"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__02
-#, python-format
-msgid "Debit note"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__12
-#, python-format
-msgid "Debit notice - cash reporting"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_account_tag.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_account_tag__l10n_bg_applicability__declaration
-#, python-format
-msgid "Declaration"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Default Accounts"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__01
-#, python-format
-msgid "Delivery under Part I of Annex 2 of VAT"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__02
-#, python-format
-msgid "Delivery under Part II of Annex 2 of VAT"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -412,14 +252,6 @@ msgstr ""
 
 #. module: l10n_bg_config
 #. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_type_vat__dropship
-#, python-format
-msgid "Dropship/Try party deal"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
 #: code:addons/l10n_bg_config/models/res_partner.py:0
 #: model:ir.model.fields.selection,name:l10n_bg_config.selection__res_partner__l10n_bg_uic_type__eu_vat
 #, python-format
@@ -427,69 +259,24 @@ msgid "EU Tax administration number"
 msgstr ""
 
 #. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_type_vat__out_customs
-#, python-format
-msgid "Export Customs declaration"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_partner__l10n_bg_function
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_users__l10n_bg_function
-msgid "Function fo NRA"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Extend address"
 msgstr ""
 
 #. module: l10n_bg_config
 #: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Generate VAT declaration and export in csv file."
+msgid "Extend address with Bulgaria localization."
 msgstr ""
 
 #. module: l10n_bg_config
 #: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_intrastat
-msgid "Generate XML files for Bulgaria intrastat"
+msgid "Generate XML files for Bulgaria intrastat (EE)"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "INTRASTAT Settings"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_type_vat__in_customs
-#, python-format
-msgid "Import Customs declaration"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__03
-#, python-format
-msgid "Import under Annex 3 of VAT"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Install BNB update rates"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__01
-#, python-format
-msgid "Invoice"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__11
-#, python-format
-msgid "Invoice - cash reporting"
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_partner__is_company_master
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_users__is_company_master
+msgid "Is Company Master"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -498,26 +285,23 @@ msgid "Is L10N Bg Record"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Journal"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model,name:l10n_bg_config.model_account_move
-msgid "Journal Entry"
-msgstr ""
-
-#. module: l10n_bg_config
 #: model:ir.model.fields,field_description:l10n_bg_config.field_res_country__title_format
 msgid "Layout in Name views"
 msgstr ""
 
 #. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__54
-#, python-format
-msgid "Marriage/absence/destruction of goods under Art. 15a, para. 10 of VAT"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Multilang cyrillic support"
+msgstr ""
+
+#. module: l10n_bg_config
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Multilang support for other fields"
+msgstr ""
+
+#. module: l10n_bg_config
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Multilang support for partner names and more"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -526,17 +310,23 @@ msgid "NRA Bulgaria, tax offices and departments"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_bank_statement_line__l10n_bg_narration
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_move__l10n_bg_narration
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_payment__l10n_bg_narration
-msgid "Narration for audit report"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "National Revenue Agency"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_bank_statement_line__l10n_bg_name
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_move__l10n_bg_name
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_payment__l10n_bg_name
-msgid "Number of locale document"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "National Revenue Agency departments, offices and head office."
+msgstr ""
+
+#. module: l10n_bg_config
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Other multilang"
+msgstr ""
+
+#. module: l10n_bg_config
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Partner multilang"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -546,177 +336,38 @@ msgstr ""
 
 #. module: l10n_bg_config
 #: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Partners and Addresses"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__95
-#, python-format
-msgid "Protocol for free provision of foodstuffs"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__29
-#, python-format
-msgid "Protocol under Art. 126b"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__91
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__93
-#, python-format
-msgid "Protocol under Art. 151c"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__94
-#, python-format
-msgid "Protocol under Art. 151c, para. 7"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__92
-#, python-format
-msgid "Protocol under Art. 151g"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__50
-#, python-format
-msgid "Protocols fuel supplies"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__09
-#, python-format
-msgid "Protocols or other"
+msgid "Partners & Addresses"
 msgstr ""
 
 #. module: l10n_bg_config
 #: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_intrastat_product
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid "Provide Intrastat Product Declaration."
+msgid "Provide Intrastat Product Declaration. (OCA)"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_coa_reports
-msgid "Provide all COA reports for Bulgarian."
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_vat_reports
-msgid "Provide all VAT reports for Bulgarian - NRA."
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_tax_admin
-msgid ""
-"Provide all needed functionality for Bulgarian.\n"
-"Accounting and law documents."
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_account_tag.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_account_tag__l10n_bg_applicability__purchase
-#, python-format
-msgid "Purchase report"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__53
-#, python-format
-msgid ""
-"Replacement of the person for whom the goods were intended without "
-"termination of the contract under Art. 15a, para. 4 of VAT"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_account_tag.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_account_tag__l10n_bg_applicability__sale
-#, python-format
-msgid "Sale report"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__84
-#, python-format
-msgid "Sales of flour"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__81
-#, python-format
-msgid "Sales report - tickets"
+#: model:ir.model.fields,help:l10n_bg_config.field_res_config_settings__module_l10n_bg_reports_audit
+msgid "Provide all Accounting TAX Audit reports for Bulgarian - NRA."
 msgstr ""
 
 #. module: l10n_bg_config
 #: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid ""
-"Set up a functionality to use transliterate names of partners,\n"
-"                                        company, city, street ..."
+msgid "Reform the reports forms support for Bulgaria"
 msgstr ""
 
 #. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__82
-#, python-format
-msgid "Special tax order"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Report forms"
 msgstr ""
 
 #. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__05
-#, python-format
-msgid "Storeable goods receive from EU"
+#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
+msgid "Report printing forms"
 msgstr ""
 
 #. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__04
-#, python-format
-msgid "Storeable goods sent to EU"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__07
-#, python-format
-msgid "Supply, import or IC acquisition of bread"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__08
-#, python-format
-msgid "Supply, import or IC acquisition of flour"
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_partner__l10n_bg_represent_contact_id
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_users__l10n_bg_represent_contact_id
+msgid "Representative"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -725,29 +376,16 @@ msgid "Switch on multilanguage support"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_account_financial_forms
-msgid "TAX Audit forms"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_company__l10n_bg_odoo_compatible
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__l10n_bg_odoo_compatible
-msgid "TAX Odoo Compatible"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_res_company__l10n_bg_tax_contact_id
+#: model:ir.model.fields,field_description:l10n_bg_config.field_res_company__l10n_bg_represent_contact_id
 msgid "TAX Report creator"
 msgstr ""
 
 #. module: l10n_bg_config
 #. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_delivery_type__58
+#: code:addons/l10n_bg_config/models/res_partner.py:0
+#: model:ir.model.fields.selection,name:l10n_bg_config.selection__res_partner__type__tax
 #, python-format
-msgid ""
-"Termination of the contract under the mode of storage of goods until "
-"requested under Art. 15a of VAT"
+msgid "Tax agent"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -760,13 +398,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_bg_config.field_res_partner__l10n_bg_uic_type
 #: model:ir.model.fields,field_description:l10n_bg_config.field_res_users__l10n_bg_uic_type
 msgid "Type of Bulgaria UID"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_bank_statement_line__l10n_bg_type_vat
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_move__l10n_bg_type_vat
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_payment__l10n_bg_type_vat
-msgid "Type of numbering"
 msgstr ""
 
 #. module: l10n_bg_config
@@ -785,13 +416,6 @@ msgid ""
 msgstr ""
 
 #. module: l10n_bg_config
-#: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
-msgid ""
-"Upload Bulgaria cites, municipalities, states,\n"
-"                                        villages and manastiries, so you can select them more easily."
-msgstr ""
-
-#. module: l10n_bg_config
 #: model:ir.model.fields,field_description:l10n_bg_config.field_res_config_settings__module_l10n_bg_city
 msgid "Upload Bulgaria city"
 msgstr ""
@@ -802,43 +426,8 @@ msgid "Upload cites, municipalities, states, villages and manastiries"
 msgstr ""
 
 #. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_account_tag__l10n_bg_applicability
-msgid "Use for"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_account_tag.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_account_tag__l10n_bg_applicability__vies
-#, python-format
-msgid "VIES Report"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_bank_statement_line__l10n_bg_delivery_type
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_move__l10n_bg_delivery_type
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_payment__l10n_bg_delivery_type
-msgid "Vat type delivery"
-msgstr ""
-
-#. module: l10n_bg_config
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_bank_statement_line__l10n_bg_doc_type
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_move__l10n_bg_doc_type
-#: model:ir.model.fields,field_description:l10n_bg_config.field_account_payment__l10n_bg_doc_type
-msgid "Vat type document"
-msgstr ""
-
-#. module: l10n_bg_config
 #: model_terms:ir.ui.view,arch_db:l10n_bg_config.res_config_settings_view_form
 msgid ""
 "Will update daily from cron only if is checked Automatic Currency Rates "
 "(OCA) and you added a rate_provider"
-msgstr ""
-
-#. module: l10n_bg_config
-#. odoo-python
-#: code:addons/l10n_bg_config/models/account_move.py:0
-#: model:ir.model.fields.selection,name:l10n_bg_config.selection__account_move__l10n_bg_doc_type__83
-#, python-format
-msgid "sales of bread"
 msgstr ""
