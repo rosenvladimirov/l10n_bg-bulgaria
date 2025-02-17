@@ -7,10 +7,10 @@ from .res_company import L10N_BG_INTRASTAT
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    l10n_bg_odoo_compatible = fields.Boolean(related="company_id.l10n_bg_odoo_compatible")
-    l10n_bg_intra_stat_incomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_incomes")
-    l10n_bg_intra_stat_outcomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_outcomes")
-    l10n_bg_intra_stat_type = fields.Selection(L10N_BG_INTRASTAT, string="Leval of registration")
+    l10n_bg_odoo_compatible = fields.Boolean(related="company_id.l10n_bg_odoo_compatible", readonly=False)
+    l10n_bg_intra_stat_incomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_incomes", readonly=False)
+    l10n_bg_intra_stat_outcomes = fields.Boolean(related="company_id.l10n_bg_intra_stat_outcomes", readonly=False)
+    l10n_bg_intra_stat_type = fields.Selection(related="company_id.l10n_bg_intra_stat_type", readonly=False)
 
     module_account_usability = fields.Boolean(
         "Account - Missing Menus",
