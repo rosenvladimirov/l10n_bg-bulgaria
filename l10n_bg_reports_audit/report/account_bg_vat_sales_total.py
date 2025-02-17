@@ -1,6 +1,8 @@
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
+
 from odoo import api, fields, models, tools, _
-from odoo.addons.l10n_bg_vat_reports.report.l10n_bg_file_helper import l10n_bg_where, l10n_bg_odoo_compatible
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_where, l10n_bg_odoo_compatible
 from psycopg2 import sql
 
 _logger = logging.getLogger(__name__)
@@ -20,10 +22,12 @@ class AccountBGTotalSalesLine(models.Model):
     info_tag_3 = fields.Char(string='[02-03] Tax period', readonly=True)
     info_tag_5 = fields.Integer(string='[02-05] Counter sales', readonly=True)
     info_tag_6 = fields.Integer(string='[02-06] Counter purchases', readonly=True)
-    account_tag_10 = fields.Monetary(string='[02-10] Total amount of base',
-                                     currency_field='company_currency_id',
-                                     readonly=True,
-                                     help="Total amount of base")
+    account_tag_10 = fields.Monetary(
+        string='[02-10] Total amount of base',
+        currency_field='company_currency_id',
+        readonly=True,
+        help="Total amount of base"
+    )
     account_tag_20 = fields.Monetary(string='[02-20] Total VAT',
                                      currency_field='company_currency_id',
                                      readonly=True)

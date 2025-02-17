@@ -1,9 +1,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-import datetime
 import logging
+
 from odoo import api, fields, models, tools, _
-from odoo.addons.l10n_bg_vat_reports.report.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where
-from psycopg2 import sql
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where
 
 _logger = logging.getLogger(__name__)
 
@@ -46,8 +45,8 @@ class AccountBGInfoViesDeclaration(models.Model):
 
     @property
     def _table_query(self):
-        return f"""SELECT {self._select()} 
-    FROM {self._from()} 
+        return f"""SELECT {self._select()}
+    FROM {self._from()}
         {self._where() and 'WHERE ' + self._where() or ''}
         {self._group() and 'GROUP BY ' + self._group() or ''}"""
 
@@ -70,7 +69,7 @@ class AccountBGInfoViesDeclaration(models.Model):
         'VTR' AS info_tag_vtr_1,
         COALESCE(company_partner.vat, company_partner.l10n_bg_uic) AS info_tag_vtr_2,
         company_partner.name{lang_ext} AS info_tag_vtr_3,
-        CONCAT (company_partner.city{lang}, ', ', company_partner.street{lang}) AS info_tag_vtr_4, 
+        CONCAT (company_partner.city{lang}, ', ', company_partner.street{lang}) AS info_tag_vtr_4,
         'TTR' AS info_tag_ttr_1,
         COUNT(acc.partner_id) AS info_tag_vhr_3,
         SUM(acc.account_tag_vir_4 + acc.account_tag_vir_5 + acc.account_tag_vir_6) AS account_tag_ttr_2,
@@ -80,9 +79,9 @@ class AccountBGInfoViesDeclaration(models.Model):
     def _from(self):
         sub_select = self.env['account.bg.calc.vies.line'].with_context(**dict(self._context))._table_query
         return f"""({sub_select}) AS acc
-LEFT JOIN res_company AS company 
+LEFT JOIN res_company AS company
     ON acc.company_id = company.id
-LEFT JOIN res_partner AS company_partner 
+LEFT JOIN res_partner AS company_partner
     ON company.partner_id = company_partner.id
 LEFT JOIN res_partner AS represent_partner
     ON company.l10n_bg_tax_contact_id = represent_partner.id"""

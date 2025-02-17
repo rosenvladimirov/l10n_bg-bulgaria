@@ -4,22 +4,14 @@ import logging
 from psycopg2 import sql
 
 from odoo import api, fields, models, tools
-
-from odoo.addons.l10n_bg_config.models.account_move import (
-    get_delivery_type,
-    get_doc_type,
-)
-from odoo.addons.l10n_bg_vat_reports.report.l10n_bg_file_helper import (
-    l10n_bg_lang,
-    l10n_bg_where,
-)
+from odoo.addons.l10n_bg_reports_audit.models.account_move import get_doc_type, get_delivery_type
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where
 
 _logger = logging.getLogger(__name__)
 
 
-class AccountBGInfoPurchasesline(models.Model):
+class AccountBGInfoPurchasesLine(models.Model):
     """Model representing VAT lines for Analysis in Bulgarian Localization."""
-
     _name = "account.bg.info.purchases.line"
     _description = "VAT line information for Analysis in Bulgarian Localization"
     _auto = False
@@ -34,19 +26,39 @@ class AccountBGInfoPurchasesline(models.Model):
     info_tag_1 = fields.Char(string="[02-01] Tax period", readonly=True)
     info_tag_2 = fields.Char(string="[02-02] TIN", readonly=True)
     info_tag_3 = fields.Char(string="[02-03] Office", readonly=True)
-    info_tag_4 = fields.Integer(string="[02-04] Counter", readonly=True)
-    info_tag_5 = fields.Selection(
-        selection=get_doc_type, string="[02-05] Vat type document", readonly=True
+    info_tag_4 = fields.Integer(
+        string="[02-04] Counter",
+        readonly=True
     )
-    info_tag_6 = fields.Char(string="[02-06] Document number", readonly=True)
-    info_tag_7 = fields.Date(string="[02-07] Document date", readonly=True)
-    info_tag_8 = fields.Char(string="[02-08] Partner VAT", readonly=True)
-    info_tag_9 = fields.Char(string="[02-09] Partner name", readonly=True)
+    info_tag_5 = fields.Selection(
+        selection=get_doc_type(),
+        string="[02-05] Vat type document",
+        readonly=True
+    )
+    info_tag_6 = fields.Char(
+        string="[02-06] Document number",
+        readonly=True
+    )
+    info_tag_7 = fields.Date(
+        string="[02-07] Document date",
+        readonly=True
+    )
+    info_tag_8 = fields.Char(
+        string="[02-08] Partner VAT",
+        readonly=True
+    )
+    info_tag_9 = fields.Char(
+        string="[02-09] Partner name",
+        readonly=True
+    )
     info_tag_10 = fields.Char(
-        string="[02-10] Narration for audit report", readonly=True
+        string="[02-10] Narration for audit report",
+        readonly=True
     )
     info_tag_45 = fields.Selection(
-        selection=get_delivery_type, string="[02-45] Vat type delivery", readonly=True
+        selection=get_delivery_type(),
+        string="[02-45] Vat type delivery",
+        readonly=True
     )
 
     @property

@@ -1,4 +1,6 @@
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
+
 from odoo import api, fields, models, tools, _
 from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where, l10n_bg_odoo_compatible
 from psycopg2 import sql

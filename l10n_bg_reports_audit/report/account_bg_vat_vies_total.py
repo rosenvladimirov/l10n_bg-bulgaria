@@ -2,7 +2,6 @@
 import datetime
 import logging
 from odoo import api, fields, models, tools, _
-from odoo.addons.l10n_bg_vat_reports.report.l10n_bg_file_helper import l10n_bg_lang
 from psycopg2 import sql
 
 _logger = logging.getLogger(__name__)
@@ -32,7 +31,7 @@ class AccountBGTotalViesDeclaration(models.Model):
 
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
-        self.env.cr.execute(sql.SQL(f"""CREATE or REPLACE VIEW 
+        self.env.cr.execute(sql.SQL(f"""CREATE or REPLACE VIEW
     {self._table} as ({self._table_query})"""))
 
     @property
@@ -56,9 +55,9 @@ class AccountBGTotalViesDeclaration(models.Model):
     @api.model
     def _from(self, where_clause=""):
         sub_select = self.env['account.bg.calc.vies.line']._table_query
-        return f"""account_move AS am 
+        return f"""account_move AS am
     LEFT JOIN (SELECT company_id, info_tag_vir_7, partner_id, account_tag_vir_4, account_tag_vir_5, account_tag_vir_6
-                FROM ({sub_select}) AS acc{' WHERE ' + where_clause.replace('am.', 'acc.') if where_clause else ''})AS accv 
+                FROM ({sub_select}) AS acc{' WHERE ' + where_clause.replace('am.', 'acc.') if where_clause else ''})AS accv
         ON am.company_id = accv.company_id"""
 
     @api.model

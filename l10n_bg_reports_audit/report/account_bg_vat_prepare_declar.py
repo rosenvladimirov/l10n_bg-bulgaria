@@ -1,4 +1,6 @@
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
+
 from odoo import api, fields, models, tools, _
 from psycopg2 import sql
 
@@ -89,17 +91,17 @@ class AccountBGResultDeclar(models.Model):
         return """account_move_line AS aml
     LEFT JOIN account_move AS am
         ON aml.move_id = am.id
-    LEFT JOIN account_account_tag_account_move_line_rel AS tag_line_rel 
+    LEFT JOIN account_account_tag_account_move_line_rel AS tag_line_rel
         ON tag_line_rel.account_move_line_id = aml.id
-    LEFT JOIN (SELECT id, 
-                    NULLIF(REGEXP_REPLACE(account_account_tag.name#>>'{en_US}', '\D','','g'), '')::numeric AS tag_name, 
+    LEFT JOIN (SELECT id,
+                    NULLIF(REGEXP_REPLACE(account_account_tag.name#>>'{en_US}', '\D','','g'), '')::numeric AS tag_name,
                     account_account_tag.tax_negate AS negate,
-                    l10n_bg_applicability 
-                    FROM account_account_tag 
+                    l10n_bg_applicability
+                    FROM account_account_tag
                     WHERE applicability = 'taxes') AS aat
         ON aat.id = tag_line_rel.account_account_tag_id
-    LEFT JOIN (SELECT imd.id, imd.res_id, imd.model, imd.module, imd.name 
-                    FROM ir_model_data AS imd 
+    LEFT JOIN (SELECT imd.id, imd.res_id, imd.model, imd.module, imd.name
+                    FROM ir_model_data AS imd
                     WHERE imd.module = 'l10n_bg' AND imd.model = 'account.account.tag') AS imd_tag_tax
         ON imd_tag_tax.res_id = aat.id"""
 

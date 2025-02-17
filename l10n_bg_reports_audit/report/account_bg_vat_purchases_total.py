@@ -1,9 +1,9 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
+
 from odoo import api, fields, models, tools, _
-from odoo.addons.l10n_bg_config.models.account_move import get_doc_type
-from odoo.addons.l10n_bg_config.models.account_move import get_delivery_type
-from odoo.addons.l10n_bg_vat_reports.report.l10n_bg_file_helper import l10n_bg_where
+from odoo.addons.l10n_bg_reports_audit.models.account_move import get_doc_type, get_delivery_type
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_where
 from psycopg2 import sql
 
 _logger = logging.getLogger(__name__)
