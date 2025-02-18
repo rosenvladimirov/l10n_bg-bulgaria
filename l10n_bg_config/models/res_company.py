@@ -7,6 +7,12 @@ from odoo.tools import sql
 class ResCompany(models.Model):
     _inherit = "res.company"
 
+    is_l10n_bg_record = fields.Boolean(
+        string="Bulgaria - Use Bulgaria Accounting",
+        compute="_check_is_l10n_bg_record",
+        default=True,
+        store=True,
+    )
     l10n_bg_uic_type = fields.Selection(
         related='partner_id.l10n_bg_uic_type',
     )
@@ -34,3 +40,8 @@ class ResCompany(models.Model):
             if record.l10n_bg_represent_contact_id:
                 record.l10n_bg_represent_contact_id.type = "represent"
                 record.partner_id.child_ids = [Command.link(record.l10n_bg_represent_contact_id.id)]
+
+    @api.depends("chart_template")
+    def _check_is_l10n_bg_record(self):
+        for company in self:
+            company.is_l10n_bg_record = company.chart_template == "bg"

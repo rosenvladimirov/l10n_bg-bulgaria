@@ -6,8 +6,10 @@ from odoo import fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    is_l10n_bg_record = fields.Boolean(compute="_check_is_l10n_bg_record", store=True)
-
+    is_l10n_bg_record = fields.Boolean(
+        related="company_id.is_l10n_bg_record",
+        readonly=False
+    )
     module_currency_rate_update_bg_bnb = fields.Boolean(
         "Download currency rates from Bulgaria National Bank",
         help="Central currency rates downloaded from National Bank of Bulgaria",
@@ -56,6 +58,3 @@ class ResConfigSettings(models.TransientModel):
         "Bulgaria - Report Theme",
         help="Add theme for Bulgaria reports",
     )
-
-    def _check_is_l10n_bg_record(self):
-        return True

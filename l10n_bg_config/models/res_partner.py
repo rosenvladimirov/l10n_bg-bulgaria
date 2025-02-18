@@ -31,7 +31,8 @@ def _l10n_bg_uic_type():
 
 
 class ResPartner(models.Model):
-    _inherit = "res.partner"
+    _inherit = ["res.partner", "l10n.bg.config.mixin"]
+    _name = "res.partner"
 
     type = fields.Selection(selection_add=[
         ("represent", _("Company represent/manager")),

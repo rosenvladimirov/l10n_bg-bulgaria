@@ -23,6 +23,7 @@ class ResCompany(models.Model):
         store=True,
     )
 
+    @api.depends("partner_id")
     def _compute_l10n_bg_represent_contact_id(self):
         for record in self:
             tax_contact_id = record.partner_id.child_ids.filtered(lambda r: r.type == "represent")
@@ -30,6 +31,7 @@ class ResCompany(models.Model):
                 tax_contact_id = tax_contact_id[1]
             record.l10n_bg_tax_contact_id = tax_contact_id
 
+    @api.depends("partner_id")
     def _inverse_l10n_bg_represent_contact_id(self):
         for record in self:
             if record.l10n_bg_tax_contact_id:
