@@ -25,7 +25,7 @@ class L10nBGConfigMixin(models.AbstractModel):
             has_company = obj._check_company_id_in_fields()
             has_company = has_company and obj.company_id
             company = obj.company_id if has_company else obj.env.company
-            obj.is_l10n_bg_record = company._check_is_l10n_bg_record()
+            obj.is_l10n_bg_record = company.check_is_l10n_bg_record()
 
     def _check_company_id_in_fields(self):
         has_company = "company_id" in self.env[self._name]._fields
@@ -36,18 +36,19 @@ class L10nBGConfigMixin(models.AbstractModel):
     @api.model
     def get_view(self, view_id=None, view_type="form", **options):
         result = super().get_view(view_id=view_id, view_type=view_type, **options)
-        if self.env.company._check_is_l10n_bg_record():
+        if self.env.company.check_is_l10n_bg_record():
             return result
+
+        doc = etree.fromstring(result["arch"])
         if view_type == "tree":
-            doc = etree.fromstring(result["arch"])
             for field in doc.xpath('//field[contains(@name,"l10n_bg")]'):
+                if field.attrib.get("name") == 'is_l10n_bg_record':
+                    continue
                 field.set("column_invisible", "True")
             result["arch"] = etree.tostring(doc)
 
         if view_type == "form":
-            doc = etree.fromstring(result["arch"])
             for field in doc.xpath('//field[contains(@name,"l10n_bg")]'):
-                _logger.info(field.attrib.get("name"))
                 if field.attrib.get("name") == 'is_l10n_bg_record':
                     continue
                 field.set("invisible", "True")
@@ -58,7 +59,6 @@ class L10nBGConfigMixin(models.AbstractModel):
             result["arch"] = etree.tostring(doc)
 
         if view_type == "search":
-            doc = etree.fromstring(result["arch"])
             # Hide filters
             for field in doc.xpath('//filter[contains(@domain,"l10n_bg")]'):
                 field.set("invisible", "True")

@@ -45,3 +45,11 @@ class ResCompany(models.Model):
     def _check_is_l10n_bg_record(self):
         for company in self:
             company.is_l10n_bg_record = company.chart_template == "bg"
+
+
+    def check_is_l10n_bg_record(self, company=False):
+        if not company:
+            company = self
+        else:
+            company = self.browse(company)
+        return company.is_l10n_bg_record
