@@ -78,7 +78,7 @@ class AccountBGInfoSaleLine(models.Model):
         company.l10n_bg_departament_code AS info_tag_2,
         ROW_NUMBER() OVER(ORDER BY am.date) AS info_tag_3,
         am.l10n_bg_doc_type AS info_tag_4,
-        COALESCE(am.l10n_bg_name, LPAD(NULLIF(REGEXP_REPLACE(am.name, '\D','','g'), '')::varchar(255), 10, '0')) AS info_tag_5,
+        COALESCE(am.l10n_bg_name, LPAD(NULLIF(REGEXP_REPLACE(am.name, '\\D','','g'), '')::varchar(255), 10, '0')) AS info_tag_5,
         COALESCE(am.invoice_date, am.date) AS info_tag_6,
         COALESCE(partner.vat, partner.l10n_bg_uic) AS info_tag_7,
         partner.name{lang} AS info_tag_8,
@@ -342,7 +342,7 @@ FROM {self._from()}
     LEFT JOIN account_account_tag_account_move_line_rel AS tag_line_rel
         ON tag_line_rel.account_move_line_id = aml.id
     LEFT JOIN (SELECT id,
-                    NULLIF(REGEXP_REPLACE(account_account_tag.name#>>'{en_US}', '\D','','g'), '')::numeric AS tag_name,
+                    NULLIF(REGEXP_REPLACE(account_account_tag.name#>>'{en_US}', '\\D','','g'), '')::numeric AS tag_name,
                     account_account_tag.tax_negate AS negate,
                     l10n_bg_applicability
                     FROM account_account_tag

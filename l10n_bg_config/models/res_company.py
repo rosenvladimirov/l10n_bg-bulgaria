@@ -15,9 +15,11 @@ class ResCompany(models.Model):
     )
     l10n_bg_uic_type = fields.Selection(
         related='partner_id.l10n_bg_uic_type',
+        readonly=True,
     )
     l10n_bg_uic = fields.Char(
-        related="partner_id.l10n_bg_uic"
+        related="partner_id.l10n_bg_uic",
+        readonly=True,
     )
     l10n_bg_represent_contact_id = fields.Many2one(
         "res.partner",
