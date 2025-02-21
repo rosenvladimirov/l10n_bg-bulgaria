@@ -10,6 +10,7 @@ class ResCompany(models.Model):
     is_l10n_bg_record = fields.Boolean(
         string="Bulgaria - Use Bulgaria Accounting",
         compute="_check_is_l10n_bg_record",
+        inverse="_inverse_is_l10n_bg_record",
         default=True,
         store=True,
     )
@@ -48,6 +49,16 @@ class ResCompany(models.Model):
         for company in self:
             company.is_l10n_bg_record = company.chart_template == "bg"
 
+    def _inverse_is_l10n_bg_record(self):
+        for company in self:
+            if company.is_l10n_bg_record and company.chart_template == "bg":
+                company.is_l10n_bg_record = True
+            elif company.chart_template != "bg":
+                l10n_bg = self.env['ir.module.module'].search([('name', '=', 'l10n_bg'), ('state', '!=', 'installed')])
+                if l10n_bg:
+                    l10n_bg.button_immediate_install()
+            else:
+                company.is_l10n_bg_record = False
 
     def check_is_l10n_bg_record(self, company=False):
         if not company:

@@ -279,6 +279,7 @@ FROM {self._from()}
         return """am.company_id AS company_id,
     am.id AS id,
     am.id AS move_id,
+    am.partner_id AS partner_id,
     am.state AS state,
     am.date AS date,
     to_char(am.date, 'YYYYMM') AS info_tag_1,
@@ -364,4 +365,4 @@ FROM {self._from()}
 
     @api.model
     def _group(self):
-        return """am.company_id, am.id, am.state, am.date"""
+        return """am.company_id, am.id, am.partner_id, am.state, am.date"""
