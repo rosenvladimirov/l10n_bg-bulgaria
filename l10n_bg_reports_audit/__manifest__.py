@@ -3,7 +3,7 @@
     "version": "17.0.1.0.0",
     "category": "Accounting/Localizations/Reporting",
     "summary": "Reporting for Bulgarian Localization",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "website": "https://github.com/rosenvladimirov/l10n-bulgaria-ee",
     "depends": [
         "base",
