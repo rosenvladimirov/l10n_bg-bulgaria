@@ -11,6 +11,6 @@ class AccountMove(models.Model):
     l10n_bg_name = fields.Char(
         "Number of locale document", index="trigram", tracking=True, copy=False
     )
-    l10n_bg_date = fields.Char(
-        "Number of locale document", index="trigram", tracking=True, copy=False
+    l10n_bg_date = fields.Date(
+        "Date of locale document", tracking=True, copy=False
     )
