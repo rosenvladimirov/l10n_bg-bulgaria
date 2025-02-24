@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="account.account_tag_view_form" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="description" />
+                <field name="l10n_bg_code" />
             </field>
             <field name="applicability" position="after">
                 <field name="l10n_bg_applicability" />
@@ -20,7 +20,7 @@
         <field name="inherit_id" ref="account.account_tag_view_tree" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="description" />
+                <field name="l10n_bg_code" />
             </field>
         </field>
     </record>

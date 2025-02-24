@@ -16,11 +16,10 @@
         "security/ir.model.access.csv",
         "views/account_bg_vat_line_sale_reports.xml",
         "views/account_bg_vat_line_purchase_reports.xml",
+        "views/account_bg_vat_line_vies_reports.xml",
         "views/account_account_tag_views.xml",
         "views/res_config_view.xml",
-    ],
-    "auto_install": [
-        "l10n_bg",
+        "views/account_menuitem.xml",
     ],
     "installable": True,
 }

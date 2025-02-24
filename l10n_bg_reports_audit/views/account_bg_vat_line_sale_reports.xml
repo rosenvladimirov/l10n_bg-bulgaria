@@ -5,17 +5,23 @@
          <field name="model">account.bg.calc.sales.line</field>
          <field name="arch" type="xml">
             <search>
-                <field name="date" />
                 <field name="info_tag_1" />
                 <field name="move_id" />
                 <field name="partner_id" string="Customer" />
                 <field name="company_id" groups="base.group_multi_company" />
+                <field name="move_id" string="Invoice/Move" />
+                <field name="date" />
                 <separator />
                 <filter
                     name="posted"
                     string="Posted"
                     domain="[('state','=','posted')]"
                     help="Posted Journal Items"
+                />
+               <filter
+                    name="filter_date_last_month"
+                    string="Period: Last month"
+                    domain="[('state','=','posted'), ('info_tag_1', '=', (context_today()+relativedelta(months=-1)).strftime('%Y%m'))]"
                 />
                 <separator />
                 <group expand="0" string="Group By...">
@@ -41,12 +47,6 @@
                         groups="base.group_multi_company"
                     />
                </group>
-               <filter
-                    name="filter_date_last_month"
-                    invisible="1"
-                    string="Date: Last month"
-                    domain="[('date', '&lt;', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')), ('date', '&gt;=', (context_today() + relativedelta(months=-1, day=1)).strftime('%Y-%m-%d'))]"
-                />
             </search>
          </field>
     </record>
@@ -59,6 +59,14 @@
             type="xml"
         >
             <tree string="Sales">
+                <field name="company_currency_id" column_invisible="1"/>
+                <button
+                    name="open_journal_entry"
+                    string="Open"
+                    type="object"
+                    icon="fa-external-link"
+                    help="Open journal entry"
+                />
                 <field name="move_id" />
                 <field name="date" />
                 <field name="partner_id" />
@@ -80,13 +88,6 @@
                 <field name="account_tag_19" sum="Total 02-19" />
                 <field name="account_tag_25" sum="Total 02-25" />
                 <field name="state" />
-                <button
-                    name="open_journal_entry"
-                    string="Open"
-                    type="object"
-                    icon="fa-external-link"
-                    help="Open journal entry"
-                />
             </tree>
          </field>
     </record>
@@ -97,7 +98,7 @@
          <field name="arch" type="xml">
             <pivot>
                 <field name="info_tag_1" type="col" />
-                <field name="partner_id" type="row" />
+                <field name="move_id" type="row" />
                 <field name="account_tag_11" type="measure" />
                 <field name="account_tag_21" type="measure" />
                 <field name="account_tag_22" type="measure" />
@@ -111,17 +112,10 @@
     </record>
 
     <record id="action_account_bg_calc_sales_line_line" model="ir.actions.act_window">
-        <field name="name">VAT Sales BG</field>
+        <field name="name">VAT Sales report</field>
         <field name="res_model">account.bg.calc.sales.line</field>
         <field name="view_mode">pivot,tree</field>
-        <field name="context">{'search_default_posted': 1}</field>
+        <field name="context">{'search_default_filter_date_last_month': 1}</field>
     </record>
-
-    <menuitem
-        id="menu_current_account_vat_report"
-        parent="account.menu_finance_receivables"
-        sequence="99"
-        action="action_account_bg_calc_sales_line_line"
-    />
 
 </odoo>

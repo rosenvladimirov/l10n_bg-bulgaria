@@ -286,6 +286,9 @@ FROM {self._from()}
     SUM(CASE WHEN aat.tag_name = 11 AND aat.negate THEN ABS(aml.balance)*-1
             WHEN aat.tag_name = 11 AND NOT aat.negate THEN ABS(aml.balance)
             ELSE 0.00 END) AS account_tag_11,
+    SUM(CASE WHEN aat.tag_name = ANY(ARRAY[21,22,23]) AND aat.negate THEN ABS(aml.balance)*-1
+            WHEN aat.tag_name = ANY(ARRAY[21,22,23]) AND NOT aat.negate THEN ABS(aml.balance)
+            ELSE 0.00 END) AS account_tag_20,
     SUM(CASE WHEN aat.tag_name = 21 AND aat.negate THEN ABS(aml.balance)*-1
             WHEN aat.tag_name = 21 AND NOT aat.negate THEN ABS(aml.balance)
             ELSE 0.00 END) AS account_tag_21,
