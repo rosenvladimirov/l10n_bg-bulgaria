@@ -1,5 +1,1 @@
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ...
-and to allow you to ...
-
+The **l10n_bg_tax_offices** module is part of the Bulgarian localization for Odoo, providing a predefined list of regional tax offices (Territorial Directorates of the National Revenue Agency - NRA). It allows businesses to associate their operations and documents with the relevant tax authority, ensuring compliance with Bulgarian tax regulations and simplifying tax reporting and document automation.

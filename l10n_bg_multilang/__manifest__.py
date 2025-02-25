@@ -9,6 +9,7 @@
     "description": """
     Multi language support for Partner, Company, Employee.
     """,
+    "website": "https://github.com/OCA/l10n-bulgaria",
     "depends": [
         "base",
         "hr",

@@ -1,5 +1,1 @@
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ...
-and to allow you to ...
-
+The **currency_rate_update_bg_customs** module automates the process of updating currency exchange rates in Odoo by using data provided by the **Bulgarian Customs Authorities**. This module is specifically tailored for businesses in Bulgaria that rely on customs exchange statistics rates for import/export operations, financial calculations, and compliance with national regulations.

@@ -75,7 +75,7 @@ class ResCurrencyRateProviderBGCUSTOMS(models.Model):
             data = {}
             supported_currencies = self._get_supported_currencies()
             url = "https://customs.bg/wps/portal/agency/home/info-business/bank-information/customs-exchange-rates/customs-exchange-rates"
-            html = requests.get(url).content
+            html = requests.get(url, timeout=120).content
             soup = BeautifulSoup(html, "html.parser")
             table = soup.find("table", {"class": "MsoNormalTable"})
             current_date = fields.Datetime.now().date()
@@ -112,12 +112,8 @@ class ResCurrencyRateProviderBGCUSTOMS(models.Model):
                     }
 
                     _logger.debug(
-                        "Rate retrieved : 1 %s = %s %s"
-                        % (
-                            base_currency,
-                            float(curr_data[curr][0].replace(",", ".")),
-                            curr,
-                        )
+                        f"Rate retrieved : 1 {base_currency} = "
+                        f"{float(curr_data[curr][0].replace(',', '.'))} {curr}"
                     )
                 return data
         return super()._obtain_rates(base_currency, currencies, date_from, date_to)

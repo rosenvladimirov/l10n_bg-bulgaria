@@ -29,73 +29,56 @@ def l10n_bg_odoo_compatible(env, mode):
     l10n_bg_odoo_compatible = env.user.company_id.l10n_bg_odoo_compatible
     if l10n_bg_odoo_compatible and mode == "tag_20":
         return """(
-                CASE
-                    WHEN (
-                            SUM(accs.account_tag_22)
-                        ) <= 0 THEN
-                            ABS(SUM(accs.account_tag_22)) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21)
-                    ELSE
-                        SUM(-accs.account_tag_22) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21)
-                END
-            ) AS account_tag_20"""
+    CASE
+        WHEN SUM(accs.account_tag_22) <= 0 THEN
+            ABS(SUM(accs.account_tag_22)) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21)
+        ELSE
+            SUM(-accs.account_tag_22) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21)
+    END
+) AS account_tag_20"""
     elif not l10n_bg_odoo_compatible and mode == "tag_20":
-        return """SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) AS account_tag_20"""
+        return """
+        SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) AS account_tag_20
+"""
     elif l10n_bg_odoo_compatible and mode == "tag_22":
         return """(
-            CASE
-                WHEN (
-                        SUM(accs.account_tag_22)
-                    ) < 0 THEN
-                        ABS(SUM(accs.account_tag_22))
-                ELSE
-                    SUM(-accs.account_tag_22)
-            END
+    CASE
+        WHEN SUM(accs.account_tag_22) < 0 THEN
+            ABS(SUM(accs.account_tag_22))
+        ELSE
+            SUM(-accs.account_tag_22)
+    END
         ) AS account_tag_22"""
     elif not l10n_bg_odoo_compatible and mode == "tag_22":
         return """SUM(accs.account_tag_22) AS account_tag_22"""
     elif l10n_bg_odoo_compatible and mode == "tag_50":
         return """(
-            (CASE
-                WHEN (
-                    SUM(accs.account_tag_22)
-                ) >= 0 THEN
-                    CASE
-                        WHEN (
-                            SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24)
-                                - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43)
-                        ) >= 0 THEN
-                            ABS(SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24)
-                                - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43))
-                        ELSE 0.00
-                    END
-                ELSE
-                    CASE
-                        WHEN (
-                            SUM(accs.account_tag_22)
-                        ) < 0 THEN
-                            ABS(SUM(accs.account_tag_22)) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21)
-                                - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43)
-                        ELSE 0.00
-                END
-            END)
+CASE
+    WHEN SUM(accs.account_tag_22) >= 0 THEN
+        CASE
+            WHEN SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43) >= 0 THEN
+                ABS(SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43))
+            ELSE 0.00
+        END
+    ELSE
+        CASE
+            WHEN SUM(accs.account_tag_22) < 0 THEN
+                ABS(SUM(accs.account_tag_22)) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21) - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43)
+            ELSE 0.00
+    END
+END
         ) AS account_tag_50"""
     elif not l10n_bg_odoo_compatible and mode == "tag_50":
         return """SUM(accr.account_tag_50) AS account_tag_50"""
     elif l10n_bg_odoo_compatible and mode == "tag_60":
         return """(
-            CASE
-                WHEN (
-                    SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) -
-                        SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43)
-                ) > 0 THEN
-                    0.00
-                ELSE
-                    ABS(
-                        SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) -
-                            SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43)
-                    )
-            END
-        ) AS account_tag_60"""
+    CASE
+        WHEN SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43) > 0 THEN
+            0.00
+        ELSE
+            ABS(SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) - SUM(accp.account_tag_41 + accp.account_tag_42 + accp.account_tag_43))
+    END
+) AS account_tag_60"""
     elif not l10n_bg_odoo_compatible and mode == "tag_60":
         return """SUM(accr.account_tag_60) AS account_tag_60"""
 
@@ -416,13 +399,15 @@ def get_delivery_type():
         (
             "51",
             _(
-                "Arrival of goods on the territory of the country under the regime of storage of goods until demand under Art. 15a of VAT"
+                "Arrival of goods on the territory of the country under "
+                "the regime of storage of goods until demand under Art. 15a of VAT"
             ),
         ),
         (
             "53",
             _(
-                "Replacement of the person for whom the goods were intended without termination of the contract under Art. 15a, para. 4 of VAT"
+                "Replacement of the person for whom the goods were intended without "
+                "termination of the contract under Art. 15a, para. 4 of VAT"
             ),
         ),
         (

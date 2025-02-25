@@ -12,7 +12,6 @@ _logger = logging.getLogger(__name__)
 
 
 def post_init_hook(env):
-    # country_id = env.ref("base.bg")
     module = __name__.split("addons.")[1].split(".")[0]
     module_path = ""
     for adp in addons.__path__:

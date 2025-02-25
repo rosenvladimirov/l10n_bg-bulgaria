@@ -8,6 +8,7 @@
     "version": "17.0.1.0.0",
     "license": "AGPL-3",
     "author": "Rosen Vladimirov,Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/l10n-bulgaria",
     "depends": [
         "base",
         "account",

@@ -4,7 +4,7 @@
     "category": "Accounting/Localizations/Reporting",
     "summary": "Reporting for Bulgarian Localization",
     "license": "LGPL-3",
-    "website": "https://github.com/rosenvladimirov/l10n-bulgaria-ee",
+    "website": "https://github.com/OCA/l10n-bulgaria",
     "depends": [
         "base",
         "sale",

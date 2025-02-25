@@ -1,5 +1,1 @@
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ...
-and to allow you to ...
-
+The **l10n_bg_report_theme** module provides professional and standardized formatting for primary accounting documents in Odoo, tailored to Bulgarian accounting standards. It ensures compliance by styling invoices, proformas, credit/debit notes, and other key documents with proper layouts, logos, and structured data. Designed for clarity and professionalism, it integrates seamlessly with Bulgarian localization modules like **l10n_bg**, enhancing both readability and legal conformity.

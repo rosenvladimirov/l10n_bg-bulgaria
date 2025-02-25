@@ -1,8 +1,7 @@
-[ This file is optional, it should explain how to configure
-  the module before using it; it is aimed at advanced users. ]
+1. **Navigate to General Settings**:
+    - Go to **Settings** → **Accounting** → **Currency Rates Providers**.
 
-To configure this module, you need to:
-
-- Go to ...
-
-![alternative description]()../static/description/image.png)
+2. **Activate Currency Exchange Update**:
+    - Scroll to the section **Currency Exchange Rate Update**.
+    - Select **Bulgarian National Bank (BNB)** as the provider for exchange rates.
+    - Enable the option for **Automatic Updates** if required.

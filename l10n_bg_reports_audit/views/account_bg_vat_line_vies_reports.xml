@@ -42,7 +42,7 @@
          <field name="name">account.bg.calc.vies.line.tree</field>
          <field name="model">account.bg.calc.vies.line</field>
          <field name="arch" type="xml">
-            <tree string="Sales">
+            <tree>
                 <field name="partner_id" />
                 <field name="info_tag_vir_7" />
                 <field name="account_tag_vir_4" sum="Base ICD of goods 0% 02-15" />

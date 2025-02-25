@@ -120,7 +120,7 @@ class ResCurrencyRateProviderBGBNB(models.Model):
             _logger.info("Bulgarian National Bank")
 
             try:
-                raw_file = requests.get(bnb_url, params=bnb_params)
+                raw_file = requests.get(bnb_url, params=bnb_params, timeout=120)
             except OSError:
                 raise UserError(_("Web Service does not exist (%s)!") % bnb_url)
 
@@ -151,8 +151,8 @@ class ResCurrencyRateProviderBGBNB(models.Model):
                 data[rate_date][curr] = curr_data[curr]
 
                 _logger.debug(
-                    "Rate retrieved : 1 %s = %s %s"
-                    % (base_currency, curr_data[curr]["rate_currency"], curr)
+                    f"Rate retrieved : 1 {base_currency} = "
+                    f"{curr_data[curr]['rate_currency']} {curr}"
                 )
             return data
 

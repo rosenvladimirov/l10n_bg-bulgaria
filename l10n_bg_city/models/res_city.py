@@ -14,8 +14,8 @@ class CityTypes(models.Model):
     _description = "Types of settlement"
     _order = "name"
 
-    code = fields.Char("Code", index=True)
-    name = fields.Char("Name", index=True, translate=True)
+    code = fields.Char("Type Code", index=True)
+    name = fields.Char("Type Name", index=True, translate=True)
 
 
 class City(models.Model):
