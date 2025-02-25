@@ -4,8 +4,7 @@
 {
     "name": "Bulgarian City's, villages and municipalities",
     "description": """
-        This module adds to the database the nomenclature
-        of localities from Bulgaria
+    This module adds the nomenclature of localities from Bulgaria
     """,
     "version": "17.0.1.0.0",
     "license": "AGPL-3",

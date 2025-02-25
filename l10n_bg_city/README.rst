@@ -28,10 +28,12 @@ Bulgarian City's, villages and municipalities
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ... and to allow
-you to ...
+*l10n_bg_city* is a module for Odoo that provides preloaded data for
+cities and regions in Bulgaria. It automates and standardizes address
+entry by allowing selection from a list of accurate and up-to-date city
+and region names. This saves time, prevents errors, and ensures
+compliance with local requirements for documents, invoices, and
+reporting.
 
 **Table of contents**
 
@@ -41,97 +43,89 @@ you to ...
 Use Cases / Context
 ===================
 
-[ This file is optional but strongly suggested to allow end-users to
-evaluate the module's usefulness in their context. ]
+The **l10n_bg_city** module is part of the Bulgarian localization
+project for Odoo. Its primary purpose is to enhance Odoo's capabilities
+by integrating Bulgarian city and regional data, ensuring compliance
+with local business, tax, and operational requirements.
 
-It should explain the “why” of the module:
+This module provides a structured and predefined dataset of Bulgarian
+cities and regions, essential for ensuring consistency and
+standardization across databases used by Bulgarian users of Odoo. It
+simplifies address creation, regional filtering, and reporting tasks,
+focusing on accuracy and ease of use.
 
-- in which context or use cases this module can be useful (practical
-  examples are welcome!).
-- what is the business requirement that generated the need to develop
-  this module
+--------------
 
-It can also inform on related modules:
+Key Objectives
+--------------
 
-- modules it depends on and their features
-- other modules that can work well together with this one
-- suggested setups where the module is useful (eg: multicompany,
-  multi-website)
+- **Automatic City and Region Data**: Add a predefined, accurate list of
+  Bulgarian cities and their corresponding regions.
+- **Standardization**: Ensure addresses and locations entered into Odoo
+  systems are consistent with Bulgarian standards.
+- **Time-Saving**: Eliminate the manual creation and maintenance of
+  city-related data in Odoo.
 
-Installation
-============
+--------------
 
-[ This file must only be present if there are very specific installation
-instructions, such as installing non-python dependencies. The audience
-is systems administrators. ]
+Use Cases
+---------
 
-To install this module, you need to:
+Businesses Operating in Bulgaria
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Do this ...
+- Automate filling in customer, partner, or company addresses by
+  selecting from standardized city and region lists.
+- Avoid typographical errors that can lead to inconsistencies across
+  reports or legal filings.
 
-Configuration
-=============
+Tax Compliance and Legal Standards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[ This file is optional, it should explain how to configure the module
-before using it; it is aimed at advanced users. ]
+- Use the predefined city and regional data for invoices and other legal
+  documents, ensuring compliance with Bulgarian regulations.
 
-To configure this module, you need to:
+--------------
 
-- Go to ...
+Features
+--------
 
-|alternative description|../static/description/image.png)
+- Preloaded dataset of Bulgarian cities and regions.
+- Association of cities with their corresponding oblasts (regions).
+- Integration into Odoo's address fields (for customers, vendors, and
+  companies).
 
-https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/.https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/.https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/|https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/lhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/rhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/nhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/vhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/dhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/shttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/chttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/rhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/phttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ohttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/nhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/|https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/mhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ghttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/:https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/:https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/
-https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_city/
+--------------
 
-Usage
-=====
+Context and Need
+----------------
 
-[ This file must be present and contains the usage instructions for
-end-users. As all other rst files included in the README, it MUST NOT
-contain reStructuredText sections only body text (paragraphs, lists,
-tables, etc). Should you need a more elaborate structure to explain the
-addon, please create a Sphinx documentation (which may include this file
-as a "quick start" section). ]
+In Bulgaria, accurate city and region information is essential for:
 
-To use this module, you need to:
+- Tax and financial reporting (e.g., correct address formatting on
+  invoices and financial statements).
+- Standardized data entry in CRM, ERP, or other Odoo modules.
+- Streamlining logistics, e.g., city-based delivery routes and shipping
+  documents.
 
-1. Go to ...
+Without a standardized approach, users often encounter:
 
-Known issues / Roadmap
-======================
+- Errors in reporting or document generation due to inconsistent city
+  names.
+- Increased overhead in maintaining city-related data manually.
+- Delays in deployment when launching new setups for Bulgarian clients.
 
-[ Enumerate known caveats and future potential improvements. It is
-mostly intended for end-users, and can also help potential new
-contributors discovering new features to implement. ]
+--------------
 
-- ...
+Dependencies
+------------
 
-Changelog
-=========
+The **l10n_bg_city** module complements other Bulgarian localization
+modules, such as:
 
-[ The change log. The goal of this file is to help readers understand
-changes between version. The primary audience is end users and
-integrators. Purely technical changes such as code refactoring must not
-be mentioned here.
-
-This file may contain ONE level of section titles, underlined with the ~
-(tilde) character. Other section markers are forbidden and will likely
-break the structure of the README.rst or other documents where this
-fragment is included. ]
-
-11.0.x.y.z (YYYY-MM-DD)
------------------------
-
-- [BREAKING] Breaking changes come first.
-  (`#70 <https://github.com/OCA/repo/issues/70>`__)
-- [ADD] New feature. (`#74 <https://github.com/OCA/repo/issues/74>`__)
-- [FIX] Correct this. (`#71 <https://github.com/OCA/repo/issues/71>`__)
-
-11.0.x.y.z (YYYY-MM-DD)
------------------------
-
-- ...
+- **l10n_bg**: For Bulgarian accounting and VAT compliance.
+- **l10n_bg_config**: For automated configuration of all core Bulgarian
+  localization modules.
 
 Bug Tracker
 ===========
@@ -154,20 +148,14 @@ Authors
 Contributors
 ------------
 
-- Firstname Lastname email.address@example.org (optional company website
-  url)
-- Second Person second.person@example.org (optional company website url)
+- Rosen Vladimirov vladimirov.rosen@gmail.com
 
 Other credits
 -------------
 
-[ This file is optional and contains additional credits, other than
-authors, contributors, and maintainers. ]
-
 The development of this module has been financially supported by:
 
-- Company 1 name
-- Company 2 name
+- Rosen Vladimirov
 
 Maintainers
 -----------

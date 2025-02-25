@@ -28,10 +28,12 @@ Multi Language Partner, Company, Employee
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ... and to allow
-you to ...
+**l10n_bg_multilang** is a module for Odoo that adds multilingual
+support for Bulgarian localization. It provides translations for key
+elements such as taxes, chart of accounts, and reports, making it easier
+for international teams and businesses to work efficiently. The module
+enhances compliance with local standards and allows generating documents
+in multiple languages for clients and partners.
 
 **Table of contents**
 
@@ -58,81 +60,6 @@ It can also inform on related modules:
 - suggested setups where the module is useful (eg: multicompany,
   multi-website)
 
-Installation
-============
-
-[ This file must only be present if there are very specific installation
-instructions, such as installing non-python dependencies. The audience
-is systems administrators. ]
-
-To install this module, you need to:
-
-1. Do this ...
-
-Configuration
-=============
-
-[ This file is optional, it should explain how to configure the module
-before using it; it is aimed at advanced users. ]
-
-To configure this module, you need to:
-
-- Go to ...
-
-|alternative description|../static/description/image.png)
-
-https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/.https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/.https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/|https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/lhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/rhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/nhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/vhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/dhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/shttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/chttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/rhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/phttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/thttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ohttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/nhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/|https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ihttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/mhttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ahttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ghttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ehttps://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/:https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/:https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/ https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/
-https://raw.githubusercontent.com/OCA/l10n-bulgaria/17.0/l10n_bg_multilang/
-
-Usage
-=====
-
-[ This file must be present and contains the usage instructions for
-end-users. As all other rst files included in the README, it MUST NOT
-contain reStructuredText sections only body text (paragraphs, lists,
-tables, etc). Should you need a more elaborate structure to explain the
-addon, please create a Sphinx documentation (which may include this file
-as a "quick start" section). ]
-
-To use this module, you need to:
-
-1. Go to ...
-
-Known issues / Roadmap
-======================
-
-[ Enumerate known caveats and future potential improvements. It is
-mostly intended for end-users, and can also help potential new
-contributors discovering new features to implement. ]
-
-- ...
-
-Changelog
-=========
-
-[ The change log. The goal of this file is to help readers understand
-changes between version. The primary audience is end users and
-integrators. Purely technical changes such as code refactoring must not
-be mentioned here.
-
-This file may contain ONE level of section titles, underlined with the ~
-(tilde) character. Other section markers are forbidden and will likely
-break the structure of the README.rst or other documents where this
-fragment is included. ]
-
-11.0.x.y.z (YYYY-MM-DD)
------------------------
-
-- [BREAKING] Breaking changes come first.
-  (`#70 <https://github.com/OCA/repo/issues/70>`__)
-- [ADD] New feature. (`#74 <https://github.com/OCA/repo/issues/74>`__)
-- [FIX] Correct this. (`#71 <https://github.com/OCA/repo/issues/71>`__)
-
-11.0.x.y.z (YYYY-MM-DD)
------------------------
-
-- ...
-
 Bug Tracker
 ===========
 
@@ -154,20 +81,14 @@ Authors
 Contributors
 ------------
 
-- Firstname Lastname email.address@example.org (optional company website
-  url)
-- Second Person second.person@example.org (optional company website url)
+- Rosen Vladimirov vladimirov.rosen@gmail.com
 
 Other credits
 -------------
 
-[ This file is optional and contains additional credits, other than
-authors, contributors, and maintainers. ]
-
 The development of this module has been financially supported by:
 
-- Company 1 name
-- Company 2 name
+- Rosen Vladimirov
 
 Maintainers
 -----------

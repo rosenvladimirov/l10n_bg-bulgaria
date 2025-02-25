@@ -8,7 +8,7 @@ class ResCompany(models.Model):
 
     is_l10n_bg_record = fields.Boolean(
         string="Bulgaria - Use Bulgaria Accounting",
-        compute="_check_is_l10n_bg_record",
+        compute="_compute_is_l10n_bg_record",
         inverse="_inverse_is_l10n_bg_record",
         default=True,
         store=True,
@@ -65,7 +65,7 @@ class ResCompany(models.Model):
             else:
                 company.is_l10n_bg_record = False
 
-    def check_is_l10n_bg_record(self, company=False):
+    def _compute_is_l10n_bg_record(self, company=False):
         if not company:
             company = self
         else:

@@ -1,5 +1,1 @@
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ...
-and to allow you to ...
-
+**l10n_bg_multilang** is a module for Odoo that adds multilingual support for Bulgarian localization. It provides translations for key elements such as taxes, chart of accounts, and reports, making it easier for international teams and businesses to work efficiently. The module enhances compliance with local standards and allows generating documents in multiple languages for clients and partners.

@@ -3,7 +3,7 @@
 {
     "name": "Multi Language Partner, Company, Employee",
     "version": "17.0.0.1.0",
-    "author": "Rosen Vladimirov",
+    "author": "Rosen Vladimirov,Odoo Community Association (OCA)",
     "category": "Localization",
     "license": "AGPL-3",
     "description": """

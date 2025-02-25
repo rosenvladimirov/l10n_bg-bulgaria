@@ -4,6 +4,7 @@
     "category": "Accounting/Localizations/Reporting",
     "summary": "Reporting for Bulgarian Localization",
     "license": "LGPL-3",
+    "author": "Rosen Vladimirov,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/l10n-bulgaria",
     "depends": [
         "base",
