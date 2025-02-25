@@ -1,7 +1,6 @@
 #  Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import _, fields, models
-from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import get_type_vat, get_doc_type, get_delivery_type
 
 
 class AccountMove(models.Model):
