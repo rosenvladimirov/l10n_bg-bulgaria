@@ -1,31 +1,40 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, fields, models, tools, _
-from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where
+from odoo import api, fields, models
+
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import (
+    l10n_bg_lang,
+    l10n_bg_where,
+)
 
 _logger = logging.getLogger(__name__)
 
 
 class AccountBGInfoViesDeclaration(models.Model):
-    _name = 'account.bg.vies.info.declar'
-    _description = 'VIES Declaration for Analysis in Bulgarian Localization'
+    _name = "account.bg.vies.info.declar"
+    _description = "VIES Declaration for Analysis in Bulgarian Localization"
     _auto = False
-    _order = 'company_id asc'
+    _order = "company_id asc"
 
-    company_id = fields.Many2one('res.company', 'Company', readonly=True)
-    company_currency_id = fields.Many2one(related='company_id.currency_id', readonly=True)
+    company_id = fields.Many2one("res.company", "Company", readonly=True)
+    company_currency_id = fields.Many2one(
+        related="company_id.currency_id", readonly=True
+    )
 
-    info_tag_vhr_1 = fields.Char('[VHR-1] Main Record Section Code', readonly=True)
-    info_tag_vhr_2 = fields.Char(string='[VHR-2] Tax period', readonly=True)
-    info_tag_vhr_3 = fields.Integer(string='[VHR-3] Number of documents in the vies journal', readonly=True)
+    info_tag_vhr_1 = fields.Char("[VHR-1] Main Record Section Code", readonly=True)
+    info_tag_vhr_2 = fields.Char(string="[VHR-2] Tax period", readonly=True)
+    info_tag_vhr_3 = fields.Integer(
+        string="[VHR-3] Number of documents in the vies journal", readonly=True
+    )
 
-    info_tag_vdr_1 = fields.Char('[VDR-1] Main Record Section Code',
-                                 readonly=True)
-    info_tag_vdr_2 = fields.Char("[VDR-2] Represented person UIN",
-                                 help="UIN/UINF/service number from "
-                                      "the NRA register of the person submitting the declaration",
-                                 readonly=True)
+    info_tag_vdr_1 = fields.Char("[VDR-1] Main Record Section Code", readonly=True)
+    info_tag_vdr_2 = fields.Char(
+        "[VDR-2] Represented person UIN",
+        help="UIN/UINF/service number from "
+        "the NRA register of the person submitting the declaration",
+        readonly=True,
+    )
     info_tag_vdr_3 = fields.Char("[VDR-3] Represented person name", readonly=True)
     info_tag_vdr_4 = fields.Char("[VDR-4] Represented person city", readonly=True)
     info_tag_vdr_5 = fields.Char("[VDR-5] Represented person ZIP", readonly=True)
@@ -34,14 +43,20 @@ class AccountBGInfoViesDeclaration(models.Model):
 
     info_tag_vtr_1 = fields.Char("[VDR-1] Main Record Section Code", readonly=True)
     info_tag_vtr_2 = fields.Char("Company UIC", readonly=True)
-    info_tag_vtr_3 = fields.Char('Company name', readonly=True)
-    info_tag_vtr_4 = fields.Char('Company address', readonly=True)
+    info_tag_vtr_3 = fields.Char("Company name", readonly=True)
+    info_tag_vtr_4 = fields.Char("Company address", readonly=True)
 
     info_tag_ttr_1 = fields.Char("[VDR-1] Main Record Section Code", readonly=True)
-    account_tag_ttr_2 = fields.Monetary(readonly=True, string='[TTR-2] Base for ICD total [01-15]',
-                                        currency_field='company_currency_id')
-    account_tag_ttr_3 = fields.Monetary(readonly=True, string='[TTR-2] Base for ICD',
-                                        currency_field='company_currency_id')
+    account_tag_ttr_2 = fields.Monetary(
+        readonly=True,
+        string="[TTR-2] Base for ICD total [01-15]",
+        currency_field="company_currency_id",
+    )
+    account_tag_ttr_3 = fields.Monetary(
+        readonly=True,
+        string="[TTR-2] Base for ICD",
+        currency_field="company_currency_id",
+    )
 
     @property
     def _table_query(self):
@@ -54,8 +69,10 @@ class AccountBGInfoViesDeclaration(models.Model):
     def _select(self):
         lang = l10n_bg_lang(self.env)
         lang_ext = l10n_bg_lang(self.env, "partner")
-        if self._context.get('report_options') and self._context['report_options'].get('lang'):
-            lang = self._context['report_options']['lang']
+        if self._context.get("report_options") and self._context["report_options"].get(
+            "lang"
+        ):
+            lang = self._context["report_options"]["lang"]
         return f"""acc.company_id AS company_id,
         'VHR' AS info_tag_vhr_1,
         acc.info_tag_vir_7 AS info_tag_vhr_2,
@@ -77,7 +94,11 @@ class AccountBGInfoViesDeclaration(models.Model):
 
     @api.model
     def _from(self):
-        sub_select = self.env['account.bg.calc.vies.line'].with_context(**dict(self._context))._table_query
+        sub_select = (
+            self.env["account.bg.calc.vies.line"]
+            .with_context(**dict(self._context))
+            ._table_query
+        )
         return f"""({sub_select}) AS acc
 LEFT JOIN res_company AS company
     ON acc.company_id = company.id
@@ -88,14 +109,15 @@ LEFT JOIN res_partner AS represent_partner
 
     @api.model
     def _where(self):
-        if self._context.get('report_options'):
+        if self._context.get("report_options"):
             # report_options = self._context.get('report_options')
             # date_from = report_options['date']['date_from']
             # date_from_date = fields.Date.from_string(date_from)
             # tax_period = date_from_date.strftime('%Y%m')
             # return f"""acc.company_id = {self.env.company.id} AND acc.info_tag_vir_7 = '{tax_period}'"""
-            date_from, date_to, tax_period, company_id, state = l10n_bg_where(self.env,
-                                                                              self._context.get('report_options'))
+            date_from, date_to, tax_period, company_id, state = l10n_bg_where(
+                self.env, self._context.get("report_options")
+            )
             return f"""acc.company_id = {company_id} AND acc.state = ANY(ARRAY{state}) AND acc.info_tag_vir_7 = '{tax_period}'"""
         return ""
 

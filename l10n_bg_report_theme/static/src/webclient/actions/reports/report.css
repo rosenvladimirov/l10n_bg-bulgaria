@@ -9,7 +9,7 @@ Error: Undefined variable: "$grays".
 5: $o-default-report-footer-background-color: rgb(248, 252, 255) !default;
 6: $o-default-report-background-color: rgb(234, 250, 255) !default;
 7: $o-default-report-border-color: map-get($grays, '700');
-8: 
+8:
 9: /* portrait *\/
 
 Backtrace:
@@ -55,6 +55,7 @@ report.scss:4
 /usr/bin/sass:25:in `<main>'
 */
 body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$grays\".\A         on line 4 of report.scss\A \A 1: $o-default-report-font: 'Lato' !default;\A 2: $o-default-report-primary-color: rgb(26, 132, 203) !default;\A 3: $o-default-report-secondary-color: rgb(209, 234, 255) !default;\A 4: $o-default-report-base-color: map-get($grays, '900');\A 5: $o-default-report-footer-background-color: rgb(248, 252, 255) !default;\A 6: $o-default-report-background-color: rgb(234, 250, 255) !default;\A 7: $o-default-report-border-color: map-get($grays, '700');\A 8: \A 9: /* portrait */"; }
+    white-space: pre;
+    font-family: monospace;
+    content: "Error: Undefined variable: \"$grays\".\A         on line 4 of report.scss\A \A 1: $o-default-report-font: 'Lato' !default;\A 2: $o-default-report-primary-color: rgb(26, 132, 203) !default;\A 3: $o-default-report-secondary-color: rgb(209, 234, 255) !default;\A 4: $o-default-report-base-color: map-get($grays, '900');\A 5: $o-default-report-footer-background-color: rgb(248, 252, 255) !default;\A 6: $o-default-report-background-color: rgb(234, 250, 255) !default;\A 7: $o-default-report-border-color: map-get($grays, '700');\A 8: \A 9: /* portrait */";
+}

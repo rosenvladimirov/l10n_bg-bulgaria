@@ -41,16 +41,16 @@
     <record id="view_account_bg_calc_vies_line_tree" model="ir.ui.view">
          <field name="name">account.bg.calc.vies.line.tree</field>
          <field name="model">account.bg.calc.vies.line</field>
-         <field
-            name="arch"
-            type="xml"
-        >
+         <field name="arch" type="xml">
             <tree string="Sales">
                 <field name="partner_id" />
                 <field name="info_tag_vir_7" />
                 <field name="account_tag_vir_4" sum="Base ICD of goods 0% 02-15" />
                 <field name="account_tag_vir_5" sum="TO-trilateral operations 02-25" />
-                <field name="account_tag_vir_6" sum="Base under Art. 21 on the territory of the EU 02-17" />
+                <field
+                    name="account_tag_vir_6"
+                    sum="Base under Art. 21 on the territory of the EU 02-17"
+                />
                 <field name="state" />
             </tree>
          </field>
@@ -65,7 +65,10 @@
                 <field name="info_tag_vir_7" />
                 <field name="account_tag_vir_4" sum="Base ICD of goods 0% 02-15" />
                 <field name="account_tag_vir_5" sum="TO-trilateral operations 02-25" />
-                <field name="account_tag_vir_6" sum="Base under Art. 21 on the territory of the EU 02-17" />
+                <field
+                    name="account_tag_vir_6"
+                    sum="Base under Art. 21 on the territory of the EU 02-17"
+                />
             </pivot>
          </field>
     </record>

@@ -55,7 +55,7 @@
          <field name="model">account.bg.calc.purchases.line</field>
          <field name="arch" type="xml">
             <tree string="Purchases">
-                <field name="company_currency_id" column_invisible="1"/>
+                <field name="company_currency_id" column_invisible="1" />
                 <button
                     name="open_journal_entry"
                     string="Open"

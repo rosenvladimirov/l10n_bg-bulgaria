@@ -36,7 +36,7 @@
     --landscape-background-footer: #{$o-landscape-report-background-footer};
 }
 strong {
-  font-weight: 600;
+    font-weight: 600;
 }
 .container {
     font-family: var(--font-family);
@@ -63,7 +63,9 @@ strong {
         width: var(--landscape-width) !important;
     }
 }
-.o_sections_footer, .o_sections_header, .o_sections_article {
+.o_sections_footer,
+.o_sections_header,
+.o_sections_article {
     font-family: var(--font-family);
     font-size: 10px;
     padding-left: 15px;
@@ -156,7 +158,7 @@ strong {
 .o_sections_footer {
     white-space: nowrap;
     border-top: 1px rgba(var(--border-color), 0.5);
-    font-size:10px;
+    font-size: 10px;
     padding-top: 5px;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -241,7 +243,7 @@ strong {
             &.o_selection_custom_name td {
                 color: var(--primary-color);
             }
-            &.o_subtotal{
+            &.o_subtotal {
                 td:first-child {
                     border-right: none;
                 }

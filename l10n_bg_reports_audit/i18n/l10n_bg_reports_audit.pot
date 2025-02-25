@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 16:43+0000\n"
-"PO-Revision-Date: 2025-02-22 16:43+0000\n"
+"POT-Creation-Date: 2025-02-25 06:51+0000\n"
+"PO-Revision-Date: 2025-02-25 06:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -104,6 +104,12 @@ msgid "Art. 119 - Report for sales"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_pivot
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_tree
+msgid "Base ICD of goods 0% 02-15"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
 #: model:ir.model.fields,help:l10n_bg_reports_audit.field_account_bg_total_sales_line__account_tag_12
 #: model:ir.model.fields,help:l10n_bg_reports_audit.field_account_bg_vat_calc_declar__account_tag_12
 #: model:ir.model.fields,help:l10n_bg_reports_audit.field_account_bg_vat_calc_declar__account_tag_121
@@ -117,6 +123,17 @@ msgstr ""
 #: model:ir.model.fields,help:l10n_bg_reports_audit.field_account_bg_total_sales_line__account_tag_11
 #: model:ir.model.fields,help:l10n_bg_reports_audit.field_account_bg_vat_calc_declar__account_tag_11
 msgid "Base amount from sales for domestic taxation (20%)"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_pivot
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_tree
+msgid "Base under Art. 21 on the territory of the EU 02-17"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
+#: model:ir.ui.menu,name:l10n_bg_reports_audit.menu_account_l10n_bg_vat_report
+msgid "Bulgaria audit reports"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
@@ -153,6 +170,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_bg_reports_audit.field_account_bg_vies_total_declar__company_id
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Company"
 msgstr ""
 
@@ -238,6 +256,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_bg_reports_audit.field_account_bg_calc_sales_line__partner_id
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Customer"
 msgstr ""
 
@@ -256,12 +275,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
 msgid "Date"
-msgstr ""
-
-#. module: l10n_bg_reports_audit
-#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
-#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
-msgid "Date: Last month"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
@@ -378,6 +391,7 @@ msgstr ""
 #. module: l10n_bg_reports_audit
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Group By..."
 msgstr ""
 
@@ -430,6 +444,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:l10n_bg_reports_audit.selection__account_move__l10n_bg_doc_type__11
 #, python-format
 msgid "Invoice - cash reporting"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+msgid "Invoice/Move"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
@@ -517,6 +536,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_bg_reports_audit.field_account_bg_calc_vies_line__partner_id
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Partner"
 msgstr ""
 
@@ -533,7 +553,14 @@ msgstr ""
 #. module: l10n_bg_reports_audit
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Period"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+msgid "Period: Last month"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
@@ -544,12 +571,14 @@ msgstr ""
 #: model:ir.model.fields.selection,name:l10n_bg_reports_audit.selection__account_bg_vies_total_declar__state__posted
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Posted"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_purchases_line_search
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_search
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_search
 msgid "Posted Journal Items"
 msgstr ""
 
@@ -653,6 +682,7 @@ msgstr ""
 
 #. module: l10n_bg_reports_audit
 #: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_sales_line_tree
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_tree
 msgid "Sales"
 msgstr ""
 
@@ -758,6 +788,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_bg_reports_audit.field_account_bg_info_sale_line__info_tag_0
 #: model:ir.model.fields,field_description:l10n_bg_reports_audit.field_account_bg_vat_info_declar__info_tag_1
 msgid "TIN"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_pivot
+#: model_terms:ir.ui.view,arch_db:l10n_bg_reports_audit.view_account_bg_calc_vies_line_tree
+msgid "TO-trilateral operations 02-25"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
@@ -925,13 +961,19 @@ msgstr ""
 #. module: l10n_bg_reports_audit
 #: model:ir.actions.act_window,name:l10n_bg_reports_audit.action_account_bg_calc_purchases_line
 #: model:ir.ui.menu,name:l10n_bg_reports_audit.menu_current_account_vat_purchase_report
-msgid "VAT Purchases BG"
+msgid "VAT Purchases report"
 msgstr ""
 
 #. module: l10n_bg_reports_audit
 #: model:ir.actions.act_window,name:l10n_bg_reports_audit.action_account_bg_calc_sales_line_line
 #: model:ir.ui.menu,name:l10n_bg_reports_audit.menu_current_account_vat_report
-msgid "VAT Sales BG"
+msgid "VAT Sales report"
+msgstr ""
+
+#. module: l10n_bg_reports_audit
+#: model:ir.actions.act_window,name:l10n_bg_reports_audit.action_account_bg_calc_vies_line_line
+#: model:ir.ui.menu,name:l10n_bg_reports_audit.menu_current_account_vat_vies_report
+msgid "VAT VIES report"
 msgstr ""
 
 #. module: l10n_bg_reports_audit

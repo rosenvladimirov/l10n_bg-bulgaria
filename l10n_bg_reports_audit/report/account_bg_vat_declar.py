@@ -1,29 +1,41 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, fields, models, tools, _
-from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where, l10n_bg_odoo_compatible
 from psycopg2 import sql
+
+from odoo import api, fields, models, tools
+
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import (
+    l10n_bg_lang,
+    l10n_bg_odoo_compatible,
+    l10n_bg_where,
+)
 
 _logger = logging.getLogger(__name__)
 
 
 class AccountBgVatInfoDeclar(models.Model):
-    _name = 'account.bg.vat.info.declar'
-    _description = 'VAT declaration for Analysis in Bulgarian Localization'
+    _name = "account.bg.vat.info.declar"
+    _description = "VAT declaration for Analysis in Bulgarian Localization"
     _auto = False
-    _order = 'company_id desc'
+    _order = "company_id desc"
 
-    company_id = fields.Many2one('res.company', 'Company', readonly=True)
-    company_vat = fields.Char(string='UIC', readonly=True)
-    company_address = fields.Char(string='Company address', readonly=True)
+    company_id = fields.Many2one("res.company", "Company", readonly=True)
+    company_vat = fields.Char(string="UIC", readonly=True)
+    company_address = fields.Char(string="Company address", readonly=True)
 
-    info_tag_1 = fields.Char(string='TIN', readonly=True)
-    info_tag_2 = fields.Char(string='[00-02] Name of the Legal Entity', readonly=True)
-    info_tag_3 = fields.Char(string='[00-03] Tax period', readonly=True)
-    info_tag_4 = fields.Char(string='[00-04] Person submitting the data (TIN/name)', readonly=True)
-    info_tag_5 = fields.Integer(string='[00-05] Number of documents in the sales journal', readonly=True)
-    info_tag_6 = fields.Integer(string='[00-06] Number of documents in the purchase journal', readonly=True)
+    info_tag_1 = fields.Char(string="TIN", readonly=True)
+    info_tag_2 = fields.Char(string="[00-02] Name of the Legal Entity", readonly=True)
+    info_tag_3 = fields.Char(string="[00-03] Tax period", readonly=True)
+    info_tag_4 = fields.Char(
+        string="[00-04] Person submitting the data (TIN/name)", readonly=True
+    )
+    info_tag_5 = fields.Integer(
+        string="[00-05] Number of documents in the sales journal", readonly=True
+    )
+    info_tag_6 = fields.Integer(
+        string="[00-06] Number of documents in the purchase journal", readonly=True
+    )
 
     @property
     def _table_query(self):
@@ -36,8 +48,10 @@ class AccountBgVatInfoDeclar(models.Model):
     def _select(self):
         lang = l10n_bg_lang(self.env)
         lang_ext = l10n_bg_lang(self.env, "partner")
-        if self._context.get('report_options') and self._context['report_options'].get('lang'):
-            lang = self._context['report_options']['lang']
+        if self._context.get("report_options") and self._context["report_options"].get(
+            "lang"
+        ):
+            lang = self._context["report_options"]["lang"]
         return f"""acc.company_id AS company_id,
         COALESCE(company_partner.vat, company_partner.l10n_bg_uic) AS company_vat,
         CONCAT (company_partner.city{lang}, ', ', company_partner.street{lang}) AS company_address,
@@ -85,7 +99,7 @@ class AccountBgVatInfoDeclar(models.Model):
 
     @api.model
     def _from(self):
-        return f"""account_bg_vat_calc_declar AS acc
+        return """account_bg_vat_calc_declar AS acc
 LEFT JOIN res_company AS company
     ON acc.company_id = company.id
 LEFT JOIN res_partner AS company_partner
@@ -95,11 +109,11 @@ LEFT JOIN res_partner AS represent_partner
 
     @api.model
     def _where(self):
-        if self._context.get('report_options'):
-            report_options = self._context.get('report_options')
-            date_from = report_options['date']['date_from']
+        if self._context.get("report_options"):
+            report_options = self._context.get("report_options")
+            date_from = report_options["date"]["date_from"]
             date_from_date = fields.Date.from_string(date_from)
-            tax_period = date_from_date.strftime('%Y%m')
+            tax_period = date_from_date.strftime("%Y%m")
             return f"""acc.company_id = {self.env.company.id} AND acc.info_tag_3 = '{tax_period}'"""
         return f"""acc.company_id = {self.env.company.id}"""
 
@@ -110,95 +124,197 @@ LEFT JOIN res_partner AS represent_partner
 
 class AccountBGCalcDeclar(models.Model):
     """Base model for new Bulgarian VAT reports."""
-    _name = 'account.bg.vat.calc.declar'
-    _description = 'VAT line for Analysis in Bulgarian Localization'
-    _auto = False
-    _order = 'company_id asc'
 
-    company_id = fields.Many2one('res.company', 'Company', readonly=True)
-    company_currency_id = fields.Many2one(related='company_id.currency_id', readonly=True)
-    info_tag_3 = fields.Char(string='[00-03] Tax period', readonly=True)
-    info_tag_5 = fields.Integer(string='Counter sales', readonly=True)
-    info_tag_6 = fields.Integer(string='Counter purchases', readonly=True)
-    account_tag_10 = fields.Monetary(readonly=True, string='[01-10] Total amount of base',
-                                     currency_field='company_currency_id',
-                                     help="Total amount of base")
-    account_tag_20 = fields.Monetary(readonly=True, string='[01-20] Total VAT',
-                                     currency_field='company_currency_id')
-    account_tag_11 = fields.Monetary(readonly=True, string='[01-11] Base for domestic taxation (20%)',
-                                     currency_field='company_currency_id',
-                                     help='Base amount from sales for domestic taxation (20%)')
-    account_tag_12 = fields.Monetary(readonly=True, string='[01-12] Base for ICA',
-                                     currency_field='company_currency_id',
-                                     help='Base amount for ICD and tax basis '
-                                          'of received supplies under Art. 82, para. 2 - 5 VAT')
-    account_tag_121 = fields.Monetary(readonly=True, string='[01-12-1] Base for ICA',
-                                     currency_field='company_currency_id',
-                                     help='Base amount for ICD and tax basis '
-                                          'of received supplies under Art. 82, para. 2 - 5 VAT')
-    account_tag_122 = fields.Monetary(readonly=True, string='[01-12-2] Base for ICA',
-                                     currency_field='company_currency_id',
-                                     help='Base amount for ICD and tax basis '
-                                          'of received supplies under Art. 82, para. 2 - 5 VAT')
-    account_tag_13 = fields.Monetary(readonly=True, string='[01-13] Base travel services 9%',
-                                     currency_field='company_currency_id')
-    account_tag_14 = fields.Monetary(readonly=True, string='[01-14] Base from export',
-                                     currency_field='company_currency_id')
-    account_tag_15 = fields.Monetary(readonly=True, string='[01-15] Base for ICD',
-                                     currency_field='company_currency_id')
-    account_tag_16 = fields.Monetary(readonly=True, string='[01-16] Base for Art.140, 146, 173 (21)',
-                                     currency_field='company_currency_id')
-    account_tag_17 = fields.Monetary(readonly=True, string='[01-17] Base for Art.21',
-                                     currency_field='company_currency_id')
-    account_tag_18 = fields.Monetary(readonly=True, string='[01-18] Base Art.62(2) on the territory of EU',
-                                     currency_field='company_currency_id')
-    account_tag_19 = fields.Monetary(readonly=True, string='[01-19] Base sales exempt ICD',
-                                     currency_field='company_currency_id')
-    account_tag_21 = fields.Monetary(readonly=True, string='[01-21] VAT taxation 20%',
-                                     currency_field='company_currency_id')
-    account_tag_22 = fields.Monetary(readonly=True, string='[01-22] VAT ICA Art.82, ал.2-3',
-                                     currency_field='company_currency_id')
-    account_tag_23 = fields.Monetary(readonly=True, string='[01-23] VAT Private usage',
-                                     currency_field='company_currency_id')
-    account_tag_24 = fields.Monetary(readonly=True, string='[01-24] VAT travel services 9%',
-                                     currency_field='company_currency_id')
-    account_tag_30 = fields.Monetary(readonly=True, string='[01-30] Base for not entitled to a tax credit',
-                                     currency_field='company_currency_id')
-    account_tag_31 = fields.Monetary(readonly=True, string='[01-31] Base for full tax credit',
-                                     currency_field='company_currency_id')
-    account_tag_32 = fields.Monetary(readonly=True, string='[01-32] Base partly tax credit (~%)',
-                                     currency_field='company_currency_id')
-    account_tag_33 = fields.Monetary(readonly=True, string='[01-33] Coefficient Art.73,ал.5',
-                                     currency_field='company_currency_id')
-    account_tag_40 = fields.Monetary(readonly=True, string='[01-40] VAT Total of tax credit',
-                                     currency_field='company_currency_id')
-    account_tag_41 = fields.Monetary(readonly=True, string='[01-41] VAT for full tax credit',
-                                     currency_field='company_currency_id')
-    account_tag_42 = fields.Monetary(readonly=True, string='[01-42] VAT partly tax credit (~%)',
-                                     currency_field='company_currency_id')
-    account_tag_43 = fields.Monetary(readonly=True, string='[01-43] Correction of Art.73, para. 8',
-                                     currency_field='company_currency_id')
-    account_tag_44 = fields.Monetary(readonly=True, string='[01-44] Base when acquiring goods from an intermediary in a tripartite operation',
-                                     currency_field='company_currency_id')
-    account_tag_50 = fields.Monetary(readonly=True, string='[01-50] VAT to pay',
-                                     currency_field='company_currency_id')
-    account_tag_60 = fields.Monetary(readonly=True, string='[01-60] VAT recovery',
-                                     currency_field='company_currency_id')
-    account_tag_70 = fields.Monetary(readonly=True, string='[01-70] VAT deducted art.92, para. 1',
-                                     currency_field='company_currency_id')
-    account_tag_71 = fields.Monetary(readonly=True, string='[01-71] VAT payed effectively',
-                                     currency_field='company_currency_id')
-    account_tag_80 = fields.Monetary(readonly=True, string='[01-80] VAT reimbursement Art.92, para. 1',
-                                     currency_field='company_currency_id')
-    account_tag_81 = fields.Monetary(readonly=True, string='[01-81] VAT reimbursement Art.92, para. 2',
-                                     currency_field='company_currency_id')
-    account_tag_82 = fields.Monetary(readonly=True, string='[01-82] VAT reimbursement Art.92, para. 3',
-                                     currency_field='company_currency_id')
+    _name = "account.bg.vat.calc.declar"
+    _description = "VAT line for Analysis in Bulgarian Localization"
+    _auto = False
+    _order = "company_id asc"
+
+    company_id = fields.Many2one("res.company", "Company", readonly=True)
+    company_currency_id = fields.Many2one(
+        related="company_id.currency_id", readonly=True
+    )
+    info_tag_3 = fields.Char(string="[00-03] Tax period", readonly=True)
+    info_tag_5 = fields.Integer(string="Counter sales", readonly=True)
+    info_tag_6 = fields.Integer(string="Counter purchases", readonly=True)
+    account_tag_10 = fields.Monetary(
+        readonly=True,
+        string="[01-10] Total amount of base",
+        currency_field="company_currency_id",
+        help="Total amount of base",
+    )
+    account_tag_20 = fields.Monetary(
+        readonly=True, string="[01-20] Total VAT", currency_field="company_currency_id"
+    )
+    account_tag_11 = fields.Monetary(
+        readonly=True,
+        string="[01-11] Base for domestic taxation (20%)",
+        currency_field="company_currency_id",
+        help="Base amount from sales for domestic taxation (20%)",
+    )
+    account_tag_12 = fields.Monetary(
+        readonly=True,
+        string="[01-12] Base for ICA",
+        currency_field="company_currency_id",
+        help="Base amount for ICD and tax basis "
+        "of received supplies under Art. 82, para. 2 - 5 VAT",
+    )
+    account_tag_121 = fields.Monetary(
+        readonly=True,
+        string="[01-12-1] Base for ICA",
+        currency_field="company_currency_id",
+        help="Base amount for ICD and tax basis "
+        "of received supplies under Art. 82, para. 2 - 5 VAT",
+    )
+    account_tag_122 = fields.Monetary(
+        readonly=True,
+        string="[01-12-2] Base for ICA",
+        currency_field="company_currency_id",
+        help="Base amount for ICD and tax basis "
+        "of received supplies under Art. 82, para. 2 - 5 VAT",
+    )
+    account_tag_13 = fields.Monetary(
+        readonly=True,
+        string="[01-13] Base travel services 9%",
+        currency_field="company_currency_id",
+    )
+    account_tag_14 = fields.Monetary(
+        readonly=True,
+        string="[01-14] Base from export",
+        currency_field="company_currency_id",
+    )
+    account_tag_15 = fields.Monetary(
+        readonly=True,
+        string="[01-15] Base for ICD",
+        currency_field="company_currency_id",
+    )
+    account_tag_16 = fields.Monetary(
+        readonly=True,
+        string="[01-16] Base for Art.140, 146, 173 (21)",
+        currency_field="company_currency_id",
+    )
+    account_tag_17 = fields.Monetary(
+        readonly=True,
+        string="[01-17] Base for Art.21",
+        currency_field="company_currency_id",
+    )
+    account_tag_18 = fields.Monetary(
+        readonly=True,
+        string="[01-18] Base Art.62(2) on the territory of EU",
+        currency_field="company_currency_id",
+    )
+    account_tag_19 = fields.Monetary(
+        readonly=True,
+        string="[01-19] Base sales exempt ICD",
+        currency_field="company_currency_id",
+    )
+    account_tag_21 = fields.Monetary(
+        readonly=True,
+        string="[01-21] VAT taxation 20%",
+        currency_field="company_currency_id",
+    )
+    account_tag_22 = fields.Monetary(
+        readonly=True,
+        string="[01-22] VAT ICA Art.82, ал.2-3",
+        currency_field="company_currency_id",
+    )
+    account_tag_23 = fields.Monetary(
+        readonly=True,
+        string="[01-23] VAT Private usage",
+        currency_field="company_currency_id",
+    )
+    account_tag_24 = fields.Monetary(
+        readonly=True,
+        string="[01-24] VAT travel services 9%",
+        currency_field="company_currency_id",
+    )
+    account_tag_30 = fields.Monetary(
+        readonly=True,
+        string="[01-30] Base for not entitled to a tax credit",
+        currency_field="company_currency_id",
+    )
+    account_tag_31 = fields.Monetary(
+        readonly=True,
+        string="[01-31] Base for full tax credit",
+        currency_field="company_currency_id",
+    )
+    account_tag_32 = fields.Monetary(
+        readonly=True,
+        string="[01-32] Base partly tax credit (~%)",
+        currency_field="company_currency_id",
+    )
+    account_tag_33 = fields.Monetary(
+        readonly=True,
+        string="[01-33] Coefficient Art.73,ал.5",
+        currency_field="company_currency_id",
+    )
+    account_tag_40 = fields.Monetary(
+        readonly=True,
+        string="[01-40] VAT Total of tax credit",
+        currency_field="company_currency_id",
+    )
+    account_tag_41 = fields.Monetary(
+        readonly=True,
+        string="[01-41] VAT for full tax credit",
+        currency_field="company_currency_id",
+    )
+    account_tag_42 = fields.Monetary(
+        readonly=True,
+        string="[01-42] VAT partly tax credit (~%)",
+        currency_field="company_currency_id",
+    )
+    account_tag_43 = fields.Monetary(
+        readonly=True,
+        string="[01-43] Correction of Art.73, para. 8",
+        currency_field="company_currency_id",
+    )
+    account_tag_44 = fields.Monetary(
+        readonly=True,
+        string="[01-44] Base when acquiring goods from an intermediary in a tripartite operation",
+        currency_field="company_currency_id",
+    )
+    account_tag_50 = fields.Monetary(
+        readonly=True, string="[01-50] VAT to pay", currency_field="company_currency_id"
+    )
+    account_tag_60 = fields.Monetary(
+        readonly=True,
+        string="[01-60] VAT recovery",
+        currency_field="company_currency_id",
+    )
+    account_tag_70 = fields.Monetary(
+        readonly=True,
+        string="[01-70] VAT deducted art.92, para. 1",
+        currency_field="company_currency_id",
+    )
+    account_tag_71 = fields.Monetary(
+        readonly=True,
+        string="[01-71] VAT payed effectively",
+        currency_field="company_currency_id",
+    )
+    account_tag_80 = fields.Monetary(
+        readonly=True,
+        string="[01-80] VAT reimbursement Art.92, para. 1",
+        currency_field="company_currency_id",
+    )
+    account_tag_81 = fields.Monetary(
+        readonly=True,
+        string="[01-81] VAT reimbursement Art.92, para. 2",
+        currency_field="company_currency_id",
+    )
+    account_tag_82 = fields.Monetary(
+        readonly=True,
+        string="[01-82] VAT reimbursement Art.92, para. 3",
+        currency_field="company_currency_id",
+    )
 
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
-        self.env.cr.execute(sql.SQL(f"""CREATE or REPLACE VIEW
-{self._table} as ({self._table_query})"""))
+        self.env.cr.execute(
+            sql.SQL(
+                f"""CREATE or REPLACE VIEW
+{self._table} as ({self._table_query})"""
+            )
+        )
 
     @property
     def _table_query(self):
@@ -271,8 +387,9 @@ LEFT JOIN (SELECT move_id, date, account_tag_50, account_tag_60, account_tag_70,
 
     @api.model
     def _where(self):
-        if self._context.get('report_options'):
-            date_from, date_to, tax_period, company_id, state = l10n_bg_where(self.env,
-                                                                              self._context.get('report_options'))
+        if self._context.get("report_options"):
+            date_from, date_to, tax_period, company_id, state = l10n_bg_where(
+                self.env, self._context.get("report_options")
+            )
             return f"""am.company_id = {company_id} AND am.state = ANY(ARRAY{state}) AND am.date >= '{date_from}' AND am.date <= '{date_to}'"""
         return ""

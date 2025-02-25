@@ -1,24 +1,33 @@
 #  Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models, fields, _
+from odoo import _, fields
 
 
-def l10n_bg_lang(env, lang_modules='partner'):
-    if lang_modules == 'partner':
-        return """#>>'{bg_BG}'""" if env['ir.module.module'].search([
-            ('name', '=', 'partner_multilang'),
-            ('state', '=', 'installed')
-        ]) else """"""
+def l10n_bg_lang(env, lang_modules="partner"):
+    if lang_modules == "partner":
+        return (
+            """#>>'{bg_BG}'"""
+            if env["ir.module.module"].search(
+                [("name", "=", "partner_multilang"), ("state", "=", "installed")]
+            )
+            else """"""
+        )
     else:
-        return """#>>'{bg_BG}'""" if env['ir.module.module'].search([
-            ('name', 'in', ('l10n_bg_multilang', 'partner_multilang')),
-            ('state', '=', 'installed')
-        ]) else """"""
+        return (
+            """#>>'{bg_BG}'"""
+            if env["ir.module.module"].search(
+                [
+                    ("name", "in", ("l10n_bg_multilang", "partner_multilang")),
+                    ("state", "=", "installed"),
+                ]
+            )
+            else """"""
+        )
 
 
 def l10n_bg_odoo_compatible(env, mode):
     l10n_bg_odoo_compatible = env.user.company_id.l10n_bg_odoo_compatible
-    if l10n_bg_odoo_compatible and mode == 'tag_20':
+    if l10n_bg_odoo_compatible and mode == "tag_20":
         return """(
                 CASE
                     WHEN (
@@ -29,9 +38,9 @@ def l10n_bg_odoo_compatible(env, mode):
                         SUM(-accs.account_tag_22) + SUM(accs.account_tag_23 + accs.account_tag_24 + accs.account_tag_21)
                 END
             ) AS account_tag_20"""
-    elif not l10n_bg_odoo_compatible and mode == 'tag_20':
+    elif not l10n_bg_odoo_compatible and mode == "tag_20":
         return """SUM(accs.account_tag_21 + accs.account_tag_22 + accs.account_tag_23 + accs.account_tag_24) AS account_tag_20"""
-    elif l10n_bg_odoo_compatible and mode == 'tag_22':
+    elif l10n_bg_odoo_compatible and mode == "tag_22":
         return """(
             CASE
                 WHEN (
@@ -42,9 +51,9 @@ def l10n_bg_odoo_compatible(env, mode):
                     SUM(-accs.account_tag_22)
             END
         ) AS account_tag_22"""
-    elif not l10n_bg_odoo_compatible and mode == 'tag_22':
+    elif not l10n_bg_odoo_compatible and mode == "tag_22":
         return """SUM(accs.account_tag_22) AS account_tag_22"""
-    elif l10n_bg_odoo_compatible and mode == 'tag_50':
+    elif l10n_bg_odoo_compatible and mode == "tag_50":
         return """(
             (CASE
                 WHEN (
@@ -70,9 +79,9 @@ def l10n_bg_odoo_compatible(env, mode):
                 END
             END)
         ) AS account_tag_50"""
-    elif not l10n_bg_odoo_compatible and mode == 'tag_50':
+    elif not l10n_bg_odoo_compatible and mode == "tag_50":
         return """SUM(accr.account_tag_50) AS account_tag_50"""
-    elif l10n_bg_odoo_compatible and mode == 'tag_60':
+    elif l10n_bg_odoo_compatible and mode == "tag_60":
         return """(
             CASE
                 WHEN (
@@ -87,22 +96,22 @@ def l10n_bg_odoo_compatible(env, mode):
                     )
             END
         ) AS account_tag_60"""
-    elif not l10n_bg_odoo_compatible and mode == 'tag_60':
+    elif not l10n_bg_odoo_compatible and mode == "tag_60":
         return """SUM(accr.account_tag_60) AS account_tag_60"""
 
 
 def l10n_bg_where(env, report_options):
-    date_from = report_options['date']['date_from']
-    date_to = report_options['date']['date_to']
+    date_from = report_options["date"]["date_from"]
+    date_to = report_options["date"]["date_to"]
     date_from_date = fields.Date.from_string(date_from)
-    tax_period = date_from_date.strftime('%Y%m')
+    tax_period = date_from_date.strftime("%Y%m")
     company_id = env.company.id
-    unposted_in_period = report_options['unposted_in_period']
-    all_entries = report_options['all_entries']
-    state = ['posted', 'cancel']
+    unposted_in_period = report_options["unposted_in_period"]
+    all_entries = report_options["all_entries"]
+    state = ["posted", "cancel"]
 
     if unposted_in_period or all_entries:
-        state.append('draft')
+        state.append("draft")
     return date_from, date_to, tax_period, company_id, state
 
 
@@ -157,14 +166,14 @@ def parce_str_200(value):
 
 
 def parce_date_6(value):
-    if value is None or value == '':
+    if value is None or value == "":
         return "".ljust(6, " ")
     value = fields.Date.from_string(value)
     return f"{value.strftime('%Y%m')}"[:6]
 
 
 def parce_date_10(value):
-    if value is None or value == '':
+    if value is None or value == "":
         return "".ljust(10, " ")
     value = fields.Date.from_string(value)
     return f"{value.strftime('%d/%m/%Y')}"[:10]
@@ -179,7 +188,7 @@ def convert_date_vies(value):
 
 def parce_fload_4(value):
     value = value or 0.00
-    return "{:.2f}".format(value).rjust(4)[:4]
+    return f"{value:.2f}".rjust(4)[:4]
 
 
 def parce_fload_15_2(value):
@@ -289,32 +298,40 @@ L10N_BG_SALES_FIELDS = {
 }
 
 L10N_BG_VIES_FIELDS = {
-    "info_tag_vhr_1": lambda value: value if value is not None else '',
-    "info_tag_vhr_2": lambda value: convert_date_vies(value) if value is not None else '',
-    "info_tag_vhr_3": lambda value: "{:d}".format(value).rjust(5) + "\r\n" if value is not None else '' + "\r\n",
-    "info_tag_vdr_1": lambda value: value if value is not None else '',
-    "info_tag_vdr_2": lambda value: parce_str_15(value) if value is not None else '',
-    "info_tag_vdr_3": lambda value: parce_str_150(value) if value is not None else '',
-    "info_tag_vdr_4": lambda value: parce_str_50(value) if value is not None else '',
-    "info_tag_vdr_5": lambda value: value if value is not None else '',
-    "info_tag_vdr_6": lambda value: parce_str_150(value) if value is not None else '',
-    "info_tag_vdr_7": lambda value: parce_str_5_vies(value) + "\r\n" if value is not None else '' + "\r\n",
-    "info_tag_vtr_1": lambda value: value if value is not None else '',
-    "info_tag_vtr_2": lambda value: parce_str_15(value) if value is not None else '',
-    "info_tag_vtr_3": lambda value: parce_str_150(value) if value is not None else '',
-    "info_tag_vtr_4": lambda value: parce_str_200(value) + "\r\n" if value is not None else '' + "\r\n",
+    "info_tag_vhr_1": lambda value: value if value is not None else "",
+    "info_tag_vhr_2": lambda value: convert_date_vies(value)
+    if value is not None
+    else "",
+    "info_tag_vhr_3": lambda value: f"{value:d}".rjust(5) + "\r\n"
+    if value is not None
+    else "" + "\r\n",
+    "info_tag_vdr_1": lambda value: value if value is not None else "",
+    "info_tag_vdr_2": lambda value: parce_str_15(value) if value is not None else "",
+    "info_tag_vdr_3": lambda value: parce_str_150(value) if value is not None else "",
+    "info_tag_vdr_4": lambda value: parce_str_50(value) if value is not None else "",
+    "info_tag_vdr_5": lambda value: value if value is not None else "",
+    "info_tag_vdr_6": lambda value: parce_str_150(value) if value is not None else "",
+    "info_tag_vdr_7": lambda value: parce_str_5_vies(value) + "\r\n"
+    if value is not None
+    else "" + "\r\n",
+    "info_tag_vtr_1": lambda value: value if value is not None else "",
+    "info_tag_vtr_2": lambda value: parce_str_15(value) if value is not None else "",
+    "info_tag_vtr_3": lambda value: parce_str_150(value) if value is not None else "",
+    "info_tag_vtr_4": lambda value: parce_str_200(value) + "\r\n"
+    if value is not None
+    else "" + "\r\n",
     "info_tag_ttr_1": lambda value: value,
-    "account_tag_ttr_2": lambda value: "{:.2f}".format(value).rjust(12),
-    "account_tag_ttr_3": lambda value: "{:.2f}".format(value).rjust(12),
+    "account_tag_ttr_2": lambda value: f"{value:.2f}".rjust(12),
+    "account_tag_ttr_3": lambda value: f"{value:.2f}".rjust(12),
 }
 
 L10N_BG_VIES_LINES_FIELDS = {
     "info_tag_vir_1": lambda value: value,
-    "info_tag_vir_2": lambda value: "{:d}".format(value).rjust(5),
+    "info_tag_vir_2": lambda value: f"{value:d}".rjust(5),
     "info_tag_vir_3": lambda value: parce_str_15(value),
-    "account_tag_vir_4": lambda value: "{:.2f}".format(value).rjust(12),
-    "account_tag_vir_5": lambda value: "{:.2f}".format(value).rjust(12),
-    "account_tag_vir_6": lambda value: "{:.2f}".format(value).rjust(12) + "       "
+    "account_tag_vir_4": lambda value: f"{value:.2f}".rjust(12),
+    "account_tag_vir_5": lambda value: f"{value:.2f}".rjust(12),
+    "account_tag_vir_6": lambda value: f"{value:.2f}".rjust(12) + "       ",
 }
 
 

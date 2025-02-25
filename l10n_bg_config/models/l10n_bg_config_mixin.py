@@ -2,6 +2,7 @@
 import logging
 
 from lxml import etree
+
 from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
@@ -9,8 +10,9 @@ _logger = logging.getLogger(__name__)
 
 class L10nBGConfigMixin(models.AbstractModel):
     _name = "l10n.bg.config.mixin"
-    _description = "Mixin model for applying to any object that use Bulgarian Accounting"
-
+    _description = (
+        "Mixin model for applying to any object that use Bulgarian Accounting"
+    )
 
     is_l10n_bg_record = fields.Boolean(
         string="Is Romanian Record",
@@ -42,14 +44,14 @@ class L10nBGConfigMixin(models.AbstractModel):
         doc = etree.fromstring(result["arch"])
         if view_type == "tree":
             for field in doc.xpath('//field[contains(@name,"l10n_bg")]'):
-                if field.attrib.get("name") == 'is_l10n_bg_record':
+                if field.attrib.get("name") == "is_l10n_bg_record":
                     continue
                 field.set("column_invisible", "True")
             result["arch"] = etree.tostring(doc)
 
         if view_type == "form":
             for field in doc.xpath('//field[contains(@name,"l10n_bg")]'):
-                if field.attrib.get("name") == 'is_l10n_bg_record':
+                if field.attrib.get("name") == "is_l10n_bg_record":
                     continue
                 field.set("invisible", "True")
 

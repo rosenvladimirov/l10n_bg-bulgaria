@@ -7,8 +7,7 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     is_l10n_bg_record = fields.Boolean(
-        related="company_id.is_l10n_bg_record",
-        readonly=False
+        related="company_id.is_l10n_bg_record", readonly=False
     )
     module_currency_rate_update_bg_bnb = fields.Boolean(
         "Download currency rates from Bulgaria National Bank",

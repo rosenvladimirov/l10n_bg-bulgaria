@@ -54,12 +54,9 @@
     <record id="view_account_bg_calc_sales_line_tree" model="ir.ui.view">
          <field name="name">account.bg.calc.sales.line.tree</field>
          <field name="model">account.bg.calc.sales.line</field>
-         <field
-            name="arch"
-            type="xml"
-        >
+         <field name="arch" type="xml">
             <tree string="Sales">
-                <field name="company_currency_id" column_invisible="1"/>
+                <field name="company_currency_id" column_invisible="1" />
                 <button
                     name="open_journal_entry"
                     string="Open"

@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="odoo-addons-l10n-bulgaria",
-    version="16.0",
+    version="17.0",
     # ...any other setup() keyword
     setup_requires=["setuptools-odoo"],
     namespace_packages=["odoo.addons"],

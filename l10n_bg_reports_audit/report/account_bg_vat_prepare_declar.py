@@ -1,43 +1,61 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, fields, models, tools, _
 from psycopg2 import sql
+
+from odoo import api, fields, models, tools
 
 _logger = logging.getLogger(__name__)
 
 
 class AccountBGResultDeclar(models.Model):
     """Base model for new Bulgarian VAT reports."""
-    _name = 'account.bg.vat.result.declar'
-    _description = 'VAT Declarations for result for period in Bulgarian Localization'
-    _auto = False
-    _order = 'move_id asc'
 
-    company_id = fields.Many2one('res.company', 'Company', readonly=True, auto_join=True)
-    company_currency_id = fields.Many2one(related='company_id.currency_id', readonly=True)
-    move_id = fields.Many2one('account.move', string='Account Move', readonly=True)
-    account_tag_50 = fields.Monetary(string='[01-50] VAT to pay',
-                                     currency_field='company_currency_id',
-                                     readonly=True)
-    account_tag_60 = fields.Monetary(string='[01-60] VAT recovery',
-                                     currency_field='company_currency_id',
-                                     readonly=True)
-    account_tag_70 = fields.Monetary(string='[01-70] Tax for pay from cell[50], deducted in accordance with art. 92, para. 1 VAT',
-                                     currency_field='company_currency_id',
-                                     readonly=True)
-    account_tag_71 = fields.Monetary(string='[01-71] Tax for pay of cell[50], effectively imported',
-                                     currency_field='company_currency_id',
-                                     readonly=True)
-    account_tag_80 = fields.Monetary(string='[01-80] Pursuant to Art. 92, Para. 1 VAT within 30 days from the submission of this declaration',
-                                     currency_field='company_currency_id',
-                                     readonly=True,)
-    account_tag_81 = fields.Monetary(string='[01-81] Pursuant to Art. 92, Para. 3 VAT within 30 days from the submission of this declaration',
-                                     currency_field='company_currency_id',
-                                     readonly=True)
-    account_tag_82 = fields.Monetary(string='[01-82] Pursuant to Art. 92, para. 4 VAT within 30 days from the submission of this declaration',
-                                     currency_field='company_currency_id',
-                                     readonly=True)
+    _name = "account.bg.vat.result.declar"
+    _description = "VAT Declarations for result for period in Bulgarian Localization"
+    _auto = False
+    _order = "move_id asc"
+
+    company_id = fields.Many2one(
+        "res.company", "Company", readonly=True, auto_join=True
+    )
+    company_currency_id = fields.Many2one(
+        related="company_id.currency_id", readonly=True
+    )
+    move_id = fields.Many2one("account.move", string="Account Move", readonly=True)
+    account_tag_50 = fields.Monetary(
+        string="[01-50] VAT to pay", currency_field="company_currency_id", readonly=True
+    )
+    account_tag_60 = fields.Monetary(
+        string="[01-60] VAT recovery",
+        currency_field="company_currency_id",
+        readonly=True,
+    )
+    account_tag_70 = fields.Monetary(
+        string="[01-70] Tax for pay from cell[50], deducted in accordance with art. 92, para. 1 VAT",
+        currency_field="company_currency_id",
+        readonly=True,
+    )
+    account_tag_71 = fields.Monetary(
+        string="[01-71] Tax for pay of cell[50], effectively imported",
+        currency_field="company_currency_id",
+        readonly=True,
+    )
+    account_tag_80 = fields.Monetary(
+        string="[01-80] Pursuant to Art. 92, Para. 1 VAT within 30 days from the submission of this declaration",
+        currency_field="company_currency_id",
+        readonly=True,
+    )
+    account_tag_81 = fields.Monetary(
+        string="[01-81] Pursuant to Art. 92, Para. 3 VAT within 30 days from the submission of this declaration",
+        currency_field="company_currency_id",
+        readonly=True,
+    )
+    account_tag_82 = fields.Monetary(
+        string="[01-82] Pursuant to Art. 92, para. 4 VAT within 30 days from the submission of this declaration",
+        currency_field="company_currency_id",
+        readonly=True,
+    )
 
     def open_journal_entry(self):
         self.ensure_one()
@@ -48,7 +66,7 @@ class AccountBGResultDeclar(models.Model):
         _logger.info(f"CREATE or REPLACE VIEW {self._table} as ({self._table_query})")
         self.env.cr.execute(
             sql.SQL(f"CREATE or REPLACE VIEW {self._table} as ({self._table_query})")
-            )
+        )
 
     @property
     def _table_query(self):

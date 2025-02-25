@@ -6,7 +6,10 @@ from psycopg2 import sql
 from odoo import api, fields, models, tools
 
 from odoo.addons.l10n_bg_reports_audit.models.account_move import get_doc_type
-from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import l10n_bg_lang, l10n_bg_where
+from odoo.addons.l10n_bg_reports_audit.models.l10n_bg_file_helper import (
+    l10n_bg_lang,
+    l10n_bg_where,
+)
 
 _logger = logging.getLogger(__name__)
 
@@ -29,7 +32,7 @@ class AccountBGInfoSaleLine(models.Model):
     move_id = fields.Many2one(
         "account.move", string="Account Move", readonly=True, auto_join=True
     )
-    id = fields.Integer(string="ID", readonly=True, related='move_id.id')
+    id = fields.Integer(string="ID", readonly=True, related="move_id.id")
 
     state = fields.Selection(
         [
@@ -154,7 +157,7 @@ class AccountBGCalcSalesLine(models.Model):
     )
 
     move_id = fields.Many2one("account.move", string="Account Move", readonly=True)
-    id = fields.Integer(string="ID", readonly=True, related='move_id.id')
+    id = fields.Integer(string="ID", readonly=True, related="move_id.id")
 
     date = fields.Date(related="move_id.date", readonly=True)
     partner_id = fields.Many2one("res.partner", "Customer", readonly=True)

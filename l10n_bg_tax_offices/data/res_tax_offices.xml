@@ -68,7 +68,10 @@
             <field name="street">ul. Aksakov</field>
             <field name="street_number">21</field>
             <field name="country_id" ref="base.bg" />
-            <field name="parent_id" ref="l10n_bg_tax_offices.nra_partner_sofia_department" />
+            <field
+            name="parent_id"
+            ref="l10n_bg_tax_offices.nra_partner_sofia_department"
+        />
             <field name="company_type">company</field>
             <field name="phone">+359298593821</field>
             <field name="email">td_sofia_grad@ro22.nra.bg</field>
@@ -126,7 +129,10 @@
             <field name="street">ul. Gurko</field>
             <field name="street_number">12</field>
             <field name="country_id" ref="base.bg" />
-            <field name="parent_id" ref="l10n_bg_tax_offices.nra_partner_sofia_middle" />
+            <field
+            name="parent_id"
+            ref="l10n_bg_tax_offices.nra_partner_sofia_middle"
+        />
             <field name="company_type">company</field>
             <field name="phone">+359298596033</field>
             <field name="email">sdo2225_delov@ro22.nra.bg</field>
